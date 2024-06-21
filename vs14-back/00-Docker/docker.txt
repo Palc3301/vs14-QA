@@ -1,0 +1,63 @@
+# Principais Comandos Docker <h1>
+
+---
+
+## Listar containers em execução
+
+- Exibe todos os containers que estão em execução no host.:
+
+```$ docker ps```
+
+## Listar todos os containers
+
+- Exibe todos os containers, incluindo os que estão parados ou finalizados.:
+
+```$ docker ps -a```
+
+## Criar e executar um container
+
+- Cria e executa um container com o nome especificado.:
+
+```$ docker run [container_name]```
+
+## Executar um container em segundo plano
+
+- Executa o container como um processo em segundo plano (modo "detached").:
+
+```$ docker run -d [container_name]```
+
+## Executar um container em modo interativo
+
+- Executa o container em modo interativo com um terminal shell.:
+
+```$ docker run -it [container_name] /bin/sh```
+
+## Parar a execução de um container
+
+- Para a execução do container especificado.:
+
+```$ docker stop [container_id]```
+
+## Iniciar um container parado
+
+- Inicia um container que foi parado anteriormente.:
+
+```$ docker start [container_id]```
+
+## Remover um container
+
+- Remove o container especificado.:
+
+```$ docker rm [container_id]```
+
+## Listar todas as imagens
+
+- Exibe todas as imagens disponíveis no host.:
+
+```$ docker images```
+
+## Remover uma imagem
+
+- Remove a imagem especificada do host.:
+
+```$ docker rmi [image_id]```
