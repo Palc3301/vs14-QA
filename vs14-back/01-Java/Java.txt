@@ -1,0 +1,5 @@
+Práticas e tasks foram feitas em suma em dupla ou grupos.
+Minha dupla desde o início foi o TiagoSoutoMA
+Devido a isso as realizações e oque foi feito está junto ao repositório dele, não utilizamos code with me!
+Então está disponível em seu repositório minhas participações
+Link: https://github.com/TiagoSoutoMA/vs14-back
