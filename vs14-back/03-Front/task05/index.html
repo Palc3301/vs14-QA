@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Task 02</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="img/favicon-16x16.png" type="image/x-icon">
+</head>
+
+<body>
+  <div class="container mt-5">
+    <h2>Exer. 1</h2>
+    <h1 id="text-element">Alterar texto usando botão</h1>
+    <p id="paragraph">Este é o local onde o texto será trocado</p>
+    <input type="text" id="input-text" class="form-control mt-3" placeholder="Digite o novo texto aqui">
+    <button id="change-btn" class="btn btn-primary mt-3">Trocar Texto</button>
+    <button id="reload-btn" class="btn btn-secondary mt-3">Recarregar Página</button>
+  </div>
+
+  <div class="container mt-5">
+    <h2>Exer. 2</h2>
+    <h3 id="change-color">Este texto muda de cor!</h3>
+    <button id="color-btn" class="btn btn-primary mt-3">Alterar cor do texto</button>
+    <input type="color" id="color-picker" class="form-control mt-3" style="display: none;">
+  </div>
+
+  <div class="container mt-5">
+    <h2>Exer. 3</h2>
+    <h1 id="counter-display">Counter em Js: <span id="counter">0</span></h1>
+    <button id="increment-btn" class="btn btn-primary mt-3">Adicionar +1</button>
+    <button id="reset-btn" class="btn btn-secondary mt-3">Resetar Contador</button>
+  </div>
+
+  <div class="container mt-5">
+    <h2>Exer. 4</h2>
+    <h1>Trocar Filtros de Imagem</h1>
+    <div class="image-container mb-3">
+      <button id="img1-btn" class="btn btn-primary">Imagem 1</button>
+      <button id="img2-btn" class="btn btn-secondary">Imagem 2</button>
+      <button id="img3-btn" class="btn btn-success">Imagem 3</button>
+    </div>
+    <img id="image-display" src="img/Vem-Ser-DBC-03_1600x500.ba2d5e.jpg" class="img-fluid" alt="Imagem">
+  </div>
+
+  <div class="container mt-5 calculator-container">
+    <h1 id="text-element">Exer. 05</h1>
+    <h2>Calculadora Simples</h2>
+    <form id="calculator-form">
+      <div class="mb-3">
+        <label for="num1" class="form-label">Número 1</label>
+        <input type="number" id="num1" class="form-control" placeholder="" required>
+      </div>
+      <div class="mb-3">
+        <label for="num2" class="form-label">Número 2</label>
+        <input type="number" id="num2" class="form-control" placeholder="" required>
+      </div>
+      <div class="mb-3">
+        <label for="operation" class="form-label">Operação</label>
+        <select id="operation" class="form-select" required>
+          <option value="" disabled selected>Escolha a operação</option>
+          <option value="add">Soma</option>
+          <option value="subtract">Subtração</option>
+          <option value="multiply">Multiplicação</option>
+          <option value="divide">Divisão</option>
+        </select>
+      </div>
+      <button type="button" id="calculate-btn" class="btn btn-primary">Calcular</button>
+      <button type="button" id="clear-btn" class="btn btn-secondary">Limpar</button>
+    </form>
+    <div id="result" class="mt-3">
+      <h4>Resultado: <span id="result-value">0</span></h4>
+    </div>
+  </div>
+
+  <div class="container mt-5 fundo">
+    <h1 id="text-element">Exer. 06</h1>
+    <h2>Calculadora Melhorada</h2>
+    <div class="calculadora">
+      <p id="resultado"></p>
+      <table>
+        <tr>
+          <td><button class="botao" onclick="clean()">C</button></td>
+          <td><button class="botao" onclick="back()">&#9003;</button></td>
+          <td><button class="botao" onclick="insert('/')">/</button></td>
+          <td><button class="botao" onclick="insert('*')">*</button></td>
+        </tr>
+        <tr>
+          <td><button class="botao" onclick="insert('7')">7</button></td>
+          <td><button class="botao" onclick="insert('8')">8</button></td>
+          <td><button class="botao" onclick="insert('9')">9</button></td>
+          <td><button class="botao" onclick="insert('-')">-</button></td>
+        </tr>
+        <tr>
+          <td><button class="botao" onclick="insert('4')">4</button></td>
+          <td><button class="botao" onclick="insert('5')">5</button></td>
+          <td><button class="botao" onclick="insert('6')">6</button></td>
+          <td><button class="botao" onclick="insert('+')">+</button></td>
+        </tr>
+        <tr>
+          <td><button class="botao" onclick="insert('1')">1</button></td>
+          <td><button class="botao" onclick="insert('2')">2</button></td>
+          <td><button class="botao" onclick="insert('3')">3</button></td>
+          <td rowspan="2"><button class="botao" style="height: 106px;" onclick="calcular()">=</button></td>
+        </tr>
+        <tr>
+          <td colspan="2"><button class="botao" style="width: 106px;" onclick="insert('0')">0</button></td>
+          <td><button class="botao" onclick="insert('.')">.</button></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script src="js/script.js"></script>
+</body>
+
+</html>

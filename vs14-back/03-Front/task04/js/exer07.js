@@ -13,7 +13,7 @@ Os num pares da lista são: 22 e possuem o indice: 21
 Os num pares da lista são: 24 e possuem o indice: 23
 Os num pares da lista são: 26 e possuem o indice: 25
 Os num pares da lista são: 28 e possuem o indice: 27
-Os num pares da lista são: 20 e possuem o indice: 29
+Os num pares da lista são: 30 e possuem o indice: 29
 */
 
 let numeros = [];
