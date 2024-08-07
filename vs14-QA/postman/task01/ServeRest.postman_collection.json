@@ -36,7 +36,73 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Listar produtos com caminho errado",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/produto",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"produto"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Listar produtos passando id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/produtos/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"produtos",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
 				},
 				{
 					"name": "Buscar produto por id",
@@ -60,7 +126,62 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Buscar produto por id inexistente",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/produtos/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"produtos",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "BeeJh5lz3k6kSIzA"
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Buscar produto com id vazio",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/produtos/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"produtos",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
 				},
 				{
 					"name": "Cadastrar produtos",
@@ -96,7 +217,66 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Cadastrar produtos com nome ja utilizado",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nome\": \"Teste2\",\r\n  \"preco\": 600,\r\n  \"descricao\": \"Teste2\",\r\n  \"quantidade\": 300\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/produtos",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"produtos"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Cadastrar produtos sem token de autenticação",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nome\": \"Teste2\",\r\n  \"preco\": 600,\r\n  \"descricao\": \"Teste2\",\r\n  \"quantidade\": 300\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/produtos",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"produtos"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
 				},
 				{
 					"name": "Atualizar produto",
@@ -139,7 +319,80 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Atualizar produto com campos vazios",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": " {\r\n    \"nome\": \"\",\r\n    \"preco\": 0,\r\n    \"descricao\": \"\",\r\n    \"quantidade\": 0\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/produtos/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"produtos",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "Bg1K96QgyibKTJYP"
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Atualizar produto sem token",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": " {\r\n    \"nome\": \"TrocouQA\",\r\n    \"preco\": 600,\r\n    \"descricao\": \"Trocou\",\r\n    \"quantidade\": 300\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/produtos/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"produtos",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "Bg1K96QgyibKTJYP"
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
 				},
 				{
 					"name": "Deletar produto",
@@ -182,7 +435,80 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Deletar produto que faz parte de um carrinho",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nome\": \"Mateus Morais\",\r\n    \"email\": \"mateus@qa.com.br\",\r\n    \"password\": \"teste\",\r\n    \"administrador\": \"true\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/produtos/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"produtos",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "Rmhbc1gZuOvl6bbY"
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Deletar produto com id inválido",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nome\": \"Mateus Morais\",\r\n    \"email\": \"mateus@qa.com.br\",\r\n    \"password\": \"teste\",\r\n    \"administrador\": \"true\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/produtos/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"produtos",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "00000000000000"
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
 				}
 			]
 		},
@@ -211,7 +537,62 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Buscar usuário com id inválido",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/usuarios/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"usuarios",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "0uxuPY0cbmQhpEz1s"
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Buscar usuário por id vazio",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/usuarios/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"usuarios",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
 				},
 				{
 					"name": "Listar usuários",
@@ -250,7 +631,56 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Listar usuários com caminho errado",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/usuario",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"usuario"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Listar usuários tentando passar o id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/usuarios//:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"usuarios",
+										"",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
 				},
 				{
 					"name": "Listar usuários por nome",
@@ -341,7 +771,66 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Cadastrar usuário com email ja utilizado",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nome\": \"Alyson QA\",\r\n    \"email\": \"alysons@qa.com.br\",\r\n    \"password\": \"teste\",\r\n    \"administrador\": \"true\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/usuarios",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"usuarios"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Cadastrar usuário com campo vazio",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nome\": \"Alyson QA\",\r\n    \"email\": \"alysons@qa.com.br\",\r\n    \"password\": \"teste\",\r\n    \"administrador\": \"true\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/usuarios",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"usuarios"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
 				},
 				{
 					"name": "Atualizar usuário",
@@ -386,7 +875,80 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Atualizar usuário com email não utilizado",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nome\": \"Alyson Mestre\",\r\n    \"email\": \"alysons10@qa.com.br\",\r\n    \"password\": \"teste1\",\r\n    \"administrador\": \"true\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/usuarios/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"usuarios",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "W6I79U3yNysb4E4X"
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Atualizar usuário com campos vazio",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nome\": \"\",\r\n    \"email\": \"\",\r\n    \"password\": \"\",\r\n    \"administrador\": \"\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/usuarios/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"usuarios",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "W6I79U3yNysb4E4X"
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
 				},
 				{
 					"name": "Deletar usuário",
@@ -416,6 +978,117 @@
 									"key": "id",
 									"value": "RIWXVBqvkPeyfqs6"
 								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Deletar com carrinho",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nome\": \"Mateus Morais\",\r\n    \"email\": \"mateus@qa.com.br\",\r\n    \"password\": \"teste\",\r\n    \"administrador\": \"true\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/usuarios/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"usuarios",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "RIWXVBqvkPeyfqs6"
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Deletar com id inexistente",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nome\": \"Mateus Morais\",\r\n    \"email\": \"mateus@qa.com.br\",\r\n    \"password\": \"teste\",\r\n    \"administrador\": \"true\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/usuarios/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"usuarios",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "{{base_url}}/usuarios",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"console.log(\"ANTES DA REQUISIÇÃO\")"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Alyson QA\",\r\n    \"email\": \"\",\r\n    \"password\": \"teste\",\r\n    \"administrador\": \"true\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/usuarios",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"usuarios"
 							]
 						}
 					},
@@ -581,33 +1254,93 @@
 		},
 		{
 			"name": "Login",
-			"item": []
-		},
-		{
-			"name": "Realizar Login",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n  \"email\": \"alyson@qa.com.br\",\r\n  \"password\": \"teste\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+			"item": [
+				{
+					"name": "Realizar Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"alyson@qa.com.br\",\r\n  \"password\": \"teste\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"login"
+							]
 						}
-					}
-				},
-				"url": {
-					"raw": "{{base_url}}/login",
-					"host": [
-						"{{base_url}}"
-					],
-					"path": [
-						"login"
+					},
+					"response": [
+						{
+							"name": "Realizar com email vazio",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"\",\r\n  \"password\": \"teste\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/login",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Realizar Login com campos vazio",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"\",\r\n  \"password\": \"\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/login",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
 					]
 				}
-			},
-			"response": []
+			]
 		}
 	]
 }
