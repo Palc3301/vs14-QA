@@ -59,9 +59,7 @@ public class CadastrarUsuarios {
                         .as(UsuariosResponse.class);
 
         System.out.println(response);
-        Assertions.assertAll("response",
-                () -> Assertions.assertEquals("nome não pode ficar em branco", response.getNome(), "Mensagem de erro esperada")
-        );
+        Assertions.assertEquals("nome não pode ficar em branco", response.getNome(), "Mensagem de erro esperada");
     }
 
     @Test
@@ -88,10 +86,10 @@ public class CadastrarUsuarios {
         UsuariosResponse response =
                 usuariosClient.cadastrarUsuarios(usuario)
                         .then()
-                        .log().all()
-                        .statusCode(HttpStatus.SC_BAD_REQUEST)
-                        .extract()
-                        .as(UsuariosResponse.class);
+                            .log().all()
+                            .statusCode(HttpStatus.SC_BAD_REQUEST)
+                            .extract()
+                            .as(UsuariosResponse.class);
 
         Assertions.assertEquals("Este email já está sendo usado", response.getMessage());
     }
@@ -101,11 +99,11 @@ public class CadastrarUsuarios {
     public void testDeveCadastrarUsuariosComDataProvider(UsuariosModel usuario, String key, String valiue) {
         usuariosClient.cadastrarUsuarios(usuario)
                 .then()
-                .log().all()
-                .statusCode(HttpStatus.SC_BAD_REQUEST)
-                .body(key, Matchers.equalTo(valiue))
-                .extract()
-                .as(UsuariosResponse.class);
+                    .log().all()
+                    .statusCode(HttpStatus.SC_BAD_REQUEST)
+                    .body(key, Matchers.equalTo(valiue))
+                    .extract()
+                    .as(UsuariosResponse.class);
     }
 
 }

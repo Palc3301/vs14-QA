@@ -1,4 +1,4 @@
-package com.vemser.rest.model.login;
+package com.vemser.rest.model;
 
 public class LoginResponse {
 

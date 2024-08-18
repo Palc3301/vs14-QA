@@ -18,19 +18,19 @@ public class DeletarProdutos {
 
         ProdutosResponse response = produtosClient.cadastrarProduto(produto)
                 .then()
-                .log().all()
-                .statusCode(HttpStatus.SC_CREATED)
-                .extract()
-                .as(ProdutosResponse.class);
+                    .log().all()
+                    .statusCode(HttpStatus.SC_CREATED)
+                    .extract()
+                    .as(ProdutosResponse.class);
 
         String produtoId = response.getId();
 
         ProdutosResponse responseDelete = produtosClient.deletarProdutoPorId(produtoId)
                 .then()
-                .log().all()
-                .statusCode(HttpStatus.SC_OK)
-                .extract()
-                .as(ProdutosResponse.class);
+                    .log().all()
+                    .statusCode(HttpStatus.SC_OK)
+                    .extract()
+                    .as(ProdutosResponse.class);
 
         Assertions.assertAll(
                 () -> Assertions.assertEquals("Cadastro realizado com sucesso", response.getMessage()),
@@ -43,10 +43,10 @@ public class DeletarProdutos {
 
         ProdutosResponse response =produtosClient.deletarProdutoQueEstaNoCarrinho()
                 .then()
-                .log().all()
-                .statusCode(HttpStatus.SC_BAD_REQUEST)
-                .extract().response()
-                .as(ProdutosResponse.class);
+                    .log().all()
+                    .statusCode(HttpStatus.SC_BAD_REQUEST)
+                    .extract().response()
+                    .as(ProdutosResponse.class);
 
         Assertions.assertEquals("Não é permitido excluir produto que faz parte de carrinho", response.getMessage());
     }
@@ -57,11 +57,11 @@ public class DeletarProdutos {
         ProdutosResponse response =
        produtosClient.deletarProdutoPorIdInexistente()
                 .then()
-                .log().all()
-                .statusCode(HttpStatus.SC_OK)
-                .extract().response()
-                .as(ProdutosResponse.class);
-        Assertions.assertAll(() -> Assertions.assertEquals("Nenhum registro excluído", response.getMessage()));
+                    .log().all()
+                    .statusCode(HttpStatus.SC_OK)
+                    .extract().response()
+                    .as(ProdutosResponse.class);
+        Assertions.assertEquals("Nenhum registro excluído", response.getMessage());
 
     }
 

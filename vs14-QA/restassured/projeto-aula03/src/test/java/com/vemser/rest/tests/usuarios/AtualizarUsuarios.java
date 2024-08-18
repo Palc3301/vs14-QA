@@ -20,10 +20,10 @@ public class AtualizarUsuarios {
         UsuariosResponse response =
                 usuariosClient.atualizarUsuario(usuario)
                         .then()
-                        .log().all()
-                        .statusCode(HttpStatus.SC_CREATED)
-                        .extract()
-                        .as(UsuariosResponse.class);
+                            .log().all()
+                            .statusCode(HttpStatus.SC_CREATED)
+                            .extract()
+                            .as(UsuariosResponse.class);
         Assertions.assertNotNull(response.getId(), "O ID do usuário não deve ser nulo");
     }
 
@@ -35,10 +35,10 @@ public class AtualizarUsuarios {
         UsuariosResponse response =
                 usuariosClient.atualizarUsuario(usuario)
                         .then()
-                        .log().all()
-                        .statusCode(HttpStatus.SC_BAD_REQUEST)
-                        .extract()
-                        .as(UsuariosResponse.class);
+                            .log().all()
+                            .statusCode(HttpStatus.SC_BAD_REQUEST)
+                            .extract()
+                            .as(UsuariosResponse.class);
 
         Assertions.assertEquals("email não pode ficar em branco",
                 response.getEmail());
@@ -51,12 +51,12 @@ public class AtualizarUsuarios {
         UsuariosResponse response =
                 usuariosClient.atualizarUsuario(usuario)
                         .then()
-                        .log().all()
-                        .statusCode(HttpStatus.SC_BAD_REQUEST)
-                        .extract()
-                        .as(UsuariosResponse.class);
+                            .log().all()
+                            .statusCode(HttpStatus.SC_BAD_REQUEST)
+                            .extract()
+                            .as(UsuariosResponse.class);
 
-    Assertions.assertEquals("Este email já está sendo usado", response.getMessage());
+        Assertions.assertEquals("Este email já está sendo usado", response.getMessage());
     }
 }
 

@@ -31,23 +31,23 @@ public class DeletarUsuarios {
         UsuariosResponse createdUser =
                 usuariosClient.cadastrarUsuarios(usuario)
                         .then()
-                        .log().all()
-                        .statusCode(HttpStatus.SC_CREATED)
-                        .extract()
-                        .as(UsuariosResponse.class);
+                            .log().all()
+                            .statusCode(HttpStatus.SC_CREATED)
+                            .extract()
+                            .as(UsuariosResponse.class);
 
         String userId = createdUser.getId();
 
         usuariosClient.deletarUsuarioPorId(userId)
                 .then()
-                .log().all()
-                .statusCode(HttpStatus.SC_OK);
+                    .log().all()
+                    .statusCode(HttpStatus.SC_OK);
 
         usuariosClient.listarUsuarioPorId(userId)
                 .then()
-                .log().all()
-                .statusCode(HttpStatus.SC_BAD_REQUEST)
-                .body("message", equalTo("Usuário não encontrado"));
+                    .log().all()
+                    .statusCode(HttpStatus.SC_BAD_REQUEST)
+                    .body("message", equalTo("Usuário não encontrado"));
     }
 
     @Test
@@ -57,16 +57,16 @@ public class DeletarUsuarios {
         Response response = usuariosClient.deletarUsuarioPorId(id);
 
         response.then()
-                .log().all()
-                .statusCode(HttpStatus.SC_OK)
-                .body("message", equalTo("Nenhum registro excluído"));
+                    .log().all()
+                    .statusCode(HttpStatus.SC_OK)
+                    .body("message", equalTo("Nenhum registro excluído"));
 
         String message = usuariosClient.listarUsuarioPorId(id)
                 .then()
-                .extract()
-                .path("message");
+                    .extract()
+                    .path("message");
 
-        Assertions.assertAll(() -> Assertions.assertEquals("Usuário não encontrado", message));
+      Assertions.assertEquals("Usuário não encontrado", message);
     }
 
     @Test
@@ -75,16 +75,16 @@ public class DeletarUsuarios {
 
         usuariosClient.deletarUsuarioPorId(id)
                 .then()
-                .log().all()
-                .statusCode(HttpStatus.SC_BAD_REQUEST) // 400 Bad Request
-                .body("message", equalTo("Não é permitido excluir usuário com carrinho cadastrado"));
+                    .log().all()
+                    .statusCode(HttpStatus.SC_BAD_REQUEST) // 400 Bad Request
+                    .body("message", equalTo("Não é permitido excluir usuário com carrinho cadastrado"));
 
         UsuariosResponse response = usuariosClient.listarUsuarioPorId(id)
                 .then()
-                .log().all()
-                .statusCode(HttpStatus.SC_OK) // 200 OK
-                .extract()
-                .as(UsuariosResponse.class);
+                    .log().all()
+                    .statusCode(HttpStatus.SC_OK) // 200 OK
+                    .extract()
+                    .as(UsuariosResponse.class);
 
         Assertions.assertAll(
                 () -> Assertions.assertEquals("Alyson QA", response.getNome()),

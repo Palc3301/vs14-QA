@@ -9,7 +9,7 @@ import static io.restassured.RestAssured.*;
 public class UsuariosClient extends BaseClient {
 
     private final String USUARIOS = "/usuarios";
-    private final String FIXED_ID = "RWtxAwZ1MR66g4kn"; // ID fixo para atualização
+    private final String FIXED_ID = "RWtxAwZ1MR66g4kn";
 
 
     public Response cadastrarUsuarios(UsuariosModel usuario) {

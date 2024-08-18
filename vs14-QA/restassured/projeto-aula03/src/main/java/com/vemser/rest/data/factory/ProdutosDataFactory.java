@@ -27,27 +27,28 @@ public class ProdutosDataFactory {
         return produto;
     }
 
-    public static ProdutosModel produtoComNomeVazio() {
+    public static ProdutosModel produtoComNomeEmBranco() {
         ProdutosModel produto = novoProduto();
         produto.setNome(StringUtils.EMPTY);
         return produto;
     }
 
-    public static ProdutosModel produtoComDescricaoVazia() {
+    public static ProdutosModel produtoComDescricaoEmBranco() {
         ProdutosModel produto = novoProduto();
         produto.setDescricao(StringUtils.EMPTY);
         return produto;
     }
 
-    public static ProdutosModel produtoComPrecoNegativo() {
+
+    public static ProdutosModel produtoComPrecoEmBranco() {
         ProdutosModel produto = novoProduto();
-        produto.setPreco(String.valueOf(-1.0));
+        produto.setPreco(StringUtils.EMPTY);
         return produto;
     }
 
-    public static ProdutosModel produtoComQuantidadeNegativa() {
+    public static ProdutosModel produtoComQuantidadeEmBranco() {
         ProdutosModel produto = novoProduto();
-        produto.setQuantidade(String.valueOf(-1));
+        produto.setQuantidade(StringUtils.EMPTY);
         return produto;
     }
 
@@ -69,6 +70,7 @@ public class ProdutosDataFactory {
 
         return produto;
     }
+
 
 
 

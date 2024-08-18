@@ -1,6 +1,7 @@
 package com.vemser.rest.client;
 
 import com.vemser.rest.model.ProdutosModel;
+import com.vemser.rest.model.ProdutosResponse;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 
@@ -35,16 +36,6 @@ public class ProdutosClient extends BaseClient{
                         .post(PRODUTOS);
     }
 
-    public Response atualizarProduto(ProdutosModel produto) {
-        return given()
-                    .spec(super.set())
-                    .contentType(ContentType.JSON)
-                    .header("Authorization", getBearerToken())
-                    .body(produto)
-                    .pathParam("id", FIXED_ID)
-                .when()
-                    .put(PRODUTOS + "/{id}");
-    }
 
     public Response atualizarProdutoSemAutenticacao(ProdutosModel produto) {
         return given()
@@ -75,19 +66,19 @@ public class ProdutosClient extends BaseClient{
 
     public Response listarProdutoPorIdInexistente() {
         return given()
-                .spec(super.set())
-                .header("Authorization", getBearerToken())
-                .pathParam("id", FAKE_ID)
+                    .spec(super.set())
+                    .header("Authorization", getBearerToken())
+                    .pathParam("id", FAKE_ID)
                 .when()
-                .get(PRODUTOS + "/{id}");
+                    .get(PRODUTOS + "/{id}");
     }
 
     public Response listarProdutoPorIdVazio() {
         return given()
-                .spec(super.set())
-                .header("Authorization", getBearerToken())
+                    .spec(super.set())
+                    .header("Authorization", getBearerToken())
                 .when()
-                .get(PRODUTOS + "/{id}");
+                    .get(PRODUTOS + "/{id}");
     }
 
     public Response listarProdutosPorNome(String nome) {
@@ -109,21 +100,45 @@ public class ProdutosClient extends BaseClient{
     }
     public Response deletarProdutoQueEstaNoCarrinho() {
         return given()
-                .spec(super.set())
-                .pathParam("id", CART_ID)
-                .header("Authorization", getBearerToken())
+                    .spec(super.set())
+                    .pathParam("id", CART_ID)
+                    .header("Authorization", getBearerToken())
                 .when()
-                .delete(PRODUTOS + "/{id}");
+                    .delete(PRODUTOS + "/{id}");
     }
 
     public Response deletarProdutoPorIdInexistente() {
         return given()
-                .spec(super.set())
-                .pathParam("id", FAKE_ID)
-                .header("Authorization", getBearerToken())
+                    .spec(super.set())
+                    .pathParam("id", FAKE_ID)
+                    .header("Authorization", getBearerToken())
                 .when()
-                .delete(PRODUTOS + "/{id}");
+                    .delete(PRODUTOS + "/{id}");
     }
+
+    public String cadastrarProdutoEObterId(ProdutosModel produto) {
+        Response response = given()
+                .spec(super.set())
+                    .contentType(ContentType.JSON)
+                    .header("Authorization", getBearerToken())
+                    .body(produto)
+                .when()
+                    .post(PRODUTOS);
+
+        return response.then().extract().path("id");
+    }
+
+    public Response atualizarProduto(String id, ProdutosModel produto) {
+        return given()
+                .spec(super.set())
+                .contentType(ContentType.JSON)
+                .header("Authorization", getBearerToken())
+                .body(produto)
+                .pathParam("id", id)
+                .when()
+                .put(PRODUTOS + "/{id}");
+    }
+
 
     public String getBearerToken() {
         String email = "alyson@qa.com.br";
@@ -144,4 +159,14 @@ public class ProdutosClient extends BaseClient{
                     .path("authorization");
     }
 
+    public Response atualizarProdutoT(ProdutosModel produto) {
+        return given()
+                .spec(super.set())
+                .contentType(ContentType.JSON)
+                .header("Authorization", getBearerToken())
+                .body(produto)
+                .pathParam("id", FIXED_ID)
+                .when()
+                .put(PRODUTOS + "/{id}");
+    }
 }

@@ -1,20 +1,16 @@
 package com.vemser.rest.data.factory;
 
 import com.vemser.rest.model.UsuariosModel;
-import io.restassured.response.Response;
 import net.datafaker.Faker;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.Locale;
 import java.util.Random;
 
-import static io.restassured.RestAssured.given;
-
 public class UsuariosDataFactory {
 
     private static Faker faker = new Faker(new Locale("pt-BR"));
     private static Random geradorBoolean = new Random();
-
 
     public static UsuariosModel usuarioComNomeVazio() {
         UsuariosModel usuario = novoUsuario();
@@ -43,6 +39,7 @@ public class UsuariosDataFactory {
     public static UsuariosModel usuarioValido() {
         return novoUsuario();
     }
+
     private static UsuariosModel novoUsuario() {
         UsuariosModel usuario = new UsuariosModel();
         usuario.setNome(faker.name().fullName());
@@ -59,22 +56,10 @@ public class UsuariosDataFactory {
         return usuario;
     }
 
-    public static UsuariosModel buscarUsuarioComEmailExistente() {
-        Response response = given()
-                .baseUri("http://localhost:3000")
-                .get("/usuarios")
-                .then()
-                .statusCode(200)
-                .extract()
-                .response();
-
-        UsuariosModel[] usuarios = response.as(UsuariosModel[].class);
-
-        if (usuarios.length > 0) {
-            return usuarios[0];
-        } else {
-            throw new RuntimeException("Nenhum usuário encontrado no banco de dados.");
-        }
+    public static UsuariosModel usuarioComEmailInvalido() {
+        UsuariosModel usuario = novoUsuario();
+        usuario.setEmail("fulanoqa.com");
+        return usuario;
     }
 
 }

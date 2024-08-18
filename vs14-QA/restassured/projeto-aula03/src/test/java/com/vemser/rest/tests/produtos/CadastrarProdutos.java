@@ -7,6 +7,8 @@ import com.vemser.rest.model.ProdutosResponse;
 import org.apache.http.HttpStatus;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 
@@ -20,9 +22,9 @@ public class CadastrarProdutos {
 
         produtosClient.cadastrarProduto(produto)
                 .then()
-                .log().all()
-                .statusCode(HttpStatus.SC_CREATED)
-                .body(matchesJsonSchemaInClasspath("schemas/produto_post.json"));
+                    .log().all()
+                    .statusCode(HttpStatus.SC_CREATED)
+                    .body(matchesJsonSchemaInClasspath("schemas/produto_post.json"));
     }
 
 
@@ -71,6 +73,17 @@ public class CadastrarProdutos {
                 .extract()
                 .as(ProdutosResponse.class);
         Assertions.assertEquals("Já existe produto com esse nome", response.getMessage());
+    }
+
+    @ParameterizedTest
+    @MethodSource("com.vemser.rest.provider.ProdutosDataProvider#produtoDataProvider")
+    public void testCriarProdutoComCamposVaziosJUnit(ProdutosModel produto, String key, String expectedValue) {
+        ProdutosResponse response = produtosClient.cadastrarProduto(produto)
+                .then()
+                .log().all()
+                .statusCode(HttpStatus.SC_BAD_REQUEST)
+                .extract()
+                .as(ProdutosResponse.class);
     }
 }
 

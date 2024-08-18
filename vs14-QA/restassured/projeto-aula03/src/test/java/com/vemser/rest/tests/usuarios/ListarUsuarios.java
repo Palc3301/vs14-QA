@@ -51,11 +51,11 @@ public class ListarUsuarios {
         List<UsuariosResponse> response =
                 usuariosClient.listarUsuarios()
                         .then()
-                        .log().all()
-                        .statusCode(HttpStatus.SC_OK)
-                        .extract()
-                        .jsonPath()
-                        .getList("usuarios", UsuariosResponse.class);
+                            .log().all()
+                            .statusCode(HttpStatus.SC_OK)
+                            .extract()
+                            .jsonPath()
+                            .getList("usuarios", UsuariosResponse.class);
 
         assertFalse(response.isEmpty(), "A lista de usuários não deve estar vazia");
     }
@@ -67,11 +67,11 @@ public class ListarUsuarios {
         List<Map<String, ?>> response =
                 usuariosClient.listarUsuariosPorNome(nome)
                         .then()
-                        .log().all()
-                        .statusCode(HttpStatus.SC_OK)
-                        .extract()
-                        .jsonPath()
-                        .getList("usuarios");
+                            .log().all()
+                            .statusCode(HttpStatus.SC_OK)
+                            .extract()
+                            .jsonPath()
+                            .getList("usuarios");
 
 
         assertFalse(response.isEmpty(), "A lista de usuários não deve estar vazia");

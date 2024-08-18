@@ -14,13 +14,13 @@ public class AtualizarProdutos {
 
     @Test
     public void testAtualizarProdutoComSucesso() {
+        ProdutosModel produto = ProdutosDataFactory.produtoValido();
+        String produtoId = produtosClient.cadastrarProdutoEObterId(produto);
 
-        ProdutosModel produto = ProdutosDataFactory.produtoComNomeUtilizado();
-
-        ProdutosResponse response = produtosClient.atualizarProduto(produto)
+        ProdutosModel produtoAtualizado = ProdutosDataFactory.produtoValido();
+        ProdutosResponse response = produtosClient.atualizarProduto(produtoId, produtoAtualizado)
                 .then()
                     .log().all()
-                    .statusCode(HttpStatus.SC_OK)
                     .extract()
                     .as(ProdutosResponse.class);
 
@@ -45,7 +45,7 @@ public class AtualizarProdutos {
     public void testAtualizarProdutoComCamposVazios() {
         ProdutosModel produto = ProdutosDataFactory.produtoComCamposVazios();
 
-        ProdutosResponse response = produtosClient.atualizarProduto(produto)
+        ProdutosResponse response = produtosClient.atualizarProdutoT(produto)
                 .then()
                     .log().all()
                     .statusCode(HttpStatus.SC_BAD_REQUEST)

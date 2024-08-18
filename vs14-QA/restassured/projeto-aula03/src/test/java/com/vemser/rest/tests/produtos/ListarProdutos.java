@@ -1,12 +1,7 @@
 package com.vemser.rest.tests.produtos;
 
 import com.vemser.rest.client.ProdutosClient;
-import io.restassured.RestAssured;
-import io.restassured.http.ContentType;
-import io.restassured.response.Response;
 import org.apache.http.HttpStatus;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 
@@ -20,7 +15,7 @@ public class ListarProdutos {
     @Test
     public void testDeveValidarContratoTodosOsProdutos() {
         produtosClient.listarProdutos()
-        .then()
+                .then()
                 .log().all()
                 .statusCode(HttpStatus.SC_OK)
                 .body(matchesJsonSchemaInClasspath("schemas/produtos.json"))
@@ -30,7 +25,7 @@ public class ListarProdutos {
     @Test
     public void testGetTodosOsProdutosPorId() {
         produtosClient.listarProdutoPorId()
-        .then()
+                .then()
                 .log().all()
                 .statusCode(HttpStatus.SC_OK)
                 .body(matchesJsonSchemaInClasspath("schemas/produtos_por_id.json"))
@@ -39,8 +34,8 @@ public class ListarProdutos {
 
     @Test
     public void testGetTodosOsProdutosIdInexistente() {
-       produtosClient.listarProdutoPorIdInexistente()
-        .then()
+        produtosClient.listarProdutoPorIdInexistente()
+                .then()
                 .log().all()
                 .statusCode(HttpStatus.SC_BAD_REQUEST);
 

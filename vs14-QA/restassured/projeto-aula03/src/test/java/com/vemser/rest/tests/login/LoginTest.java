@@ -1,86 +1,75 @@
 package com.vemser.rest.tests.login;
 
-import com.vemser.rest.model.login.LoginResponse;
-import io.restassured.http.ContentType;
+import com.vemser.rest.client.LoginClient;
+import com.vemser.rest.data.factory.LoginDataFactory;
+import com.vemser.rest.model.LoginResponse;
 import org.apache.http.HttpStatus;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import static io.restassured.RestAssured.*;
+import org.junit.jupiter.api.*;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class LoginTest {
 
-    @BeforeEach
-    public void setup() {
-        baseURI = "http://localhost:3000";
-    }
+    private final LoginClient loginClient = new LoginClient();
+
 
     @Test
     public void testLoginComSucesso() {
-        String email = "alyson@qa.com.br";
-        String password = "teste";
-
-        LoginResponse response =
-        given()
-                .log().all()
-                .contentType(ContentType.JSON)
-                .body("{ \"email\": \"" + email + "\", \"password\": \"" + password + "\" }")
-        .when()
-                .post("/login")
-        .then()
+        LoginResponse response = loginClient.realizarLoginComSucesso()
+                .then()
                 .log().all()
                 .statusCode(200)
                 .extract()
                 .as(LoginResponse.class);
-        Assertions.assertAll(() ->
-                Assertions.assertEquals("Login realizado com sucesso", response.getMessage()));
+
+        assertAll(() -> {
+            assertEquals("Login realizado com sucesso", response.getMessage());
+            assertFalse(response.getAuthorization().contains("Bearer " + response.getAuthorization()));
+        });
+
         System.out.println(response.getAuthorization());
-        Assertions.assertAll(() -> Assertions.assertFalse(response.getAuthorization().contains("Bearer "+response.getAuthorization())));
-
-
     }
 
     @Test
     public void testLoginComEmailVazio() {
-        String email = "";
-        String password = "teste";
-
-        LoginResponse response =
-        given()
-                .log().all()
-                .contentType(ContentType.JSON)
-                .body("{ \"email\": \"" + email + "\", \"password\": \"" + password + "\" }")
-        .when()
-                .post("/login")
-        .then()
+        LoginResponse response = loginClient.realizarLoginSemAutenticacao(LoginDataFactory.loginComEmailVazio().getEmail(), LoginDataFactory.loginComEmailVazio().getPassword())
+                .then()
                 .log().all()
                 .statusCode(HttpStatus.SC_BAD_REQUEST)
                 .extract()
                 .as(LoginResponse.class);
-        Assertions.assertAll("Atualizar usuário com campos em branco",
-                () -> Assertions.assertEquals("email não pode ficar em branco", response.getEmail())
-        );
+
+        assertEquals("email não pode ficar em branco", response.getEmail());
     }
 
     @Test
     public void testLoginComUsuarioInexistente() {
-        String email = "usuarioInexistente@qa.com.br";
-        String password = "senhaInvalida";
-
-        LoginResponse response =
-        given()
-                .log().all()
-                .contentType(ContentType.JSON)
-                .body("{ \"email\": \"" + email + "\", \"password\": \"" + password + "\" }")
-        .when()
-                .post("/login")
-        .then()
+        LoginResponse response = loginClient.realizarLoginSemAutenticacao(LoginDataFactory.loginComUsuarioInexistente().getEmail(), LoginDataFactory.loginComUsuarioInexistente().getPassword())
+                .then()
                 .log().all()
                 .statusCode(HttpStatus.SC_UNAUTHORIZED)
                 .extract()
                 .as(LoginResponse.class);
-        Assertions.assertEquals("Email e/ou senha inválidos", response.getMessage());
 
+        assertEquals("Email e/ou senha inválidos", response.getMessage());
+    }
 
+    /////////////////////////MOCK/////////////////////////
+
+    @Test
+    public void testLoginComSucessoMock() {
+        LoginResponse response = loginClient.realizarLoginComSucessoMock()
+                .then()
+                .log().all()
+                .statusCode(HttpStatus.SC_OK)
+                .extract()
+                .as(LoginResponse.class);
+
+        assertAll(() -> {
+            assertEquals("Login realizado com sucesso", response.getMessage());
+            assertTrue(response.getAuthorization().startsWith("Bearer "));
+        });
+
+        System.out.println(response.getAuthorization());
     }
 }
