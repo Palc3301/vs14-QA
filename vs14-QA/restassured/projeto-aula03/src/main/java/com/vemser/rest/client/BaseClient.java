@@ -7,11 +7,15 @@ import io.restassured.specification.RequestSpecification;
 
 public abstract class BaseClient {
 
-    final String BASE_URI = "http://localhost:3000";
+    String baseURI;
+
+    public BaseClient(String baseURI) {
+        this.baseURI = baseURI;
+    }
 
     public RequestSpecification set() {
         return new RequestSpecBuilder()
-                .setBaseUri(BASE_URI)
+                .setBaseUri(baseURI)
                 .setConfig(RestAssured.config().logConfig(
                         LogConfig.logConfig().enableLoggingOfRequestAndResponseIfValidationFails()))
                 .build();

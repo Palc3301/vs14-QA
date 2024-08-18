@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 
 public class AtualizarUsuarios {
 
-    private final UsuariosClient usuariosClient = new UsuariosClient();
+    private final UsuariosClient usuariosClient = new UsuariosClient("http://localhost:3000");
 
 
     @Test

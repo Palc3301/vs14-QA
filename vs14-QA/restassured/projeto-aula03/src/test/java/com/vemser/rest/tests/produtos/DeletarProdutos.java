@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 
 public class DeletarProdutos {
 
-    private final ProdutosClient produtosClient = new ProdutosClient();
+    private final ProdutosClient produtosClient = new ProdutosClient("http://localhost:3000");
 
     @Test
     public void testDeletarProdutoComSucesso() {

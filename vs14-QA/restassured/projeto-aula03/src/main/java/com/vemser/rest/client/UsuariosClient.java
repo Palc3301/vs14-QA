@@ -11,6 +11,9 @@ public class UsuariosClient extends BaseClient {
     private final String USUARIOS = "/usuarios";
     private final String FIXED_ID = "RWtxAwZ1MR66g4kn";
 
+    public UsuariosClient(String baseURI) {
+        super(baseURI);
+    }
 
     public Response cadastrarUsuarios(UsuariosModel usuario) {
 

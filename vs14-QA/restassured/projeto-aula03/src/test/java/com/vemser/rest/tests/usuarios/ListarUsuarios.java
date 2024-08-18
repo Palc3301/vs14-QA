@@ -18,7 +18,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class ListarUsuarios {
 
-    private final UsuariosClient usuariosClient = new UsuariosClient();
+    private final UsuariosClient usuariosClient = new UsuariosClient("http://localhost:3000");
 
     @BeforeEach
     public void setup() {

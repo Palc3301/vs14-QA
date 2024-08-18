@@ -3,6 +3,7 @@ package com.vemser.rest.tests.login;
 import com.vemser.rest.client.LoginClient;
 import com.vemser.rest.data.factory.LoginDataFactory;
 import com.vemser.rest.model.LoginResponse;
+import com.vemser.rest.tests.ConfigLoader;
 import org.apache.http.HttpStatus;
 import org.junit.jupiter.api.*;
 
@@ -10,15 +11,18 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class LoginTest {
 
-    private final LoginClient loginClient = new LoginClient();
+    ConfigLoader configLoader = new ConfigLoader();
+    String email = configLoader.getEmail();
+    String password = configLoader.getPassword();
 
+    private final LoginClient loginClient = new LoginClient("http://localhost:3000");
 
     @Test
     public void testLoginComSucesso() {
-        LoginResponse response = loginClient.realizarLoginComSucesso()
+        LoginResponse response = loginClient.realizarLoginComSucesso(email, password)
                 .then()
                 .log().all()
-                .statusCode(200)
+                .statusCode(HttpStatus.SC_OK)
                 .extract()
                 .as(LoginResponse.class);
 
@@ -54,22 +58,5 @@ public class LoginTest {
         assertEquals("Email e/ou senha inválidos", response.getMessage());
     }
 
-    /////////////////////////MOCK/////////////////////////
 
-    @Test
-    public void testLoginComSucessoMock() {
-        LoginResponse response = loginClient.realizarLoginComSucessoMock()
-                .then()
-                .log().all()
-                .statusCode(HttpStatus.SC_OK)
-                .extract()
-                .as(LoginResponse.class);
-
-        assertAll(() -> {
-            assertEquals("Login realizado com sucesso", response.getMessage());
-            assertTrue(response.getAuthorization().startsWith("Bearer "));
-        });
-
-        System.out.println(response.getAuthorization());
-    }
 }

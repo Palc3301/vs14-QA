@@ -14,7 +14,7 @@ import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInC
 
 public class CadastrarProdutos {
 
-    private final ProdutosClient produtosClient = new ProdutosClient();
+    private final ProdutosClient produtosClient = new ProdutosClient("http://localhost:3000");
 
     @Test
     public void testCriarProdutoComSucesso() {

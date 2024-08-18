@@ -14,6 +14,9 @@ public class ProdutosClient extends BaseClient{
     private final String CART_ID = "Rmhbc1gZuOvl6bbY";
     private final String FAKE_ID = "Rmhb";
 
+    public ProdutosClient(String baseURI) {
+        super(baseURI);
+    }
 
 
     public Response cadastrarProduto(ProdutosModel produto) {
@@ -125,7 +128,7 @@ public class ProdutosClient extends BaseClient{
                 .when()
                     .post(PRODUTOS);
 
-        return response.then().extract().path("id");
+        return response.then().extract().path("_id");
     }
 
     public Response atualizarProduto(String id, ProdutosModel produto) {

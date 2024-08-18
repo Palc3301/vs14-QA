@@ -58,7 +58,7 @@ public class UsuariosDataFactory {
 
     public static UsuariosModel usuarioComEmailInvalido() {
         UsuariosModel usuario = novoUsuario();
-        usuario.setEmail("fulanoqa.com");
+        usuario.setEmail("ful.com");
         return usuario;
     }
 

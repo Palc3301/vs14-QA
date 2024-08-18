@@ -16,7 +16,7 @@ import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInC
 
 public class CadastrarUsuarios {
 
-    private final UsuariosClient usuariosClient = new UsuariosClient();
+    private final UsuariosClient usuariosClient = new UsuariosClient("http://localhost:3000");
 
     @Test
     public void testDeveValidarContratoDePostDeUsuariosComSucesso() {
