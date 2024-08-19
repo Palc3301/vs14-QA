@@ -1,9 +1,8 @@
-package com.vemser.rest.tests.login;
+package com.vemser.rest.tests.login.wiremock;
 
 import com.github.tomakehurst.wiremock.WireMockServer;
 import com.google.gson.Gson;
 import com.vemser.rest.client.LoginClient;
-import com.vemser.rest.data.factory.LoginDataFactory;
 import com.vemser.rest.model.LoginResponse;
 import com.vemser.rest.tests.ConfigLoader;
 import io.restassured.http.ContentType;

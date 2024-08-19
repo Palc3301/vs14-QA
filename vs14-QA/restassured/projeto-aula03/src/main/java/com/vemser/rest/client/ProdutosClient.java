@@ -1,9 +1,10 @@
 package com.vemser.rest.client;
 
 import com.vemser.rest.model.ProdutosModel;
-import com.vemser.rest.model.ProdutosResponse;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
+
+import java.util.Map;
 
 import static io.restassured.RestAssured.*;
 
@@ -141,6 +142,18 @@ public class ProdutosClient extends BaseClient{
                 .when()
                 .put(PRODUTOS + "/{id}");
     }
+
+    public Response atualizarProdutoMock(String id, Map<String, Object> produto) {
+        return given()
+                .spec(super.set())
+                .contentType(ContentType.JSON)
+                .header("Authorization", getBearerToken())
+                .body(produto)
+                .pathParam("id", id)
+                .when()
+                .put(PRODUTOS + "/{id}");
+    }
+
 
 
     public String getBearerToken() {

@@ -12,8 +12,6 @@ public class Utils {
 
     public static void stubLogin() {
 
-        // ISSO DAQUI TEM QUE TER NO SETUP DE TODOS OS TESTES QUE PRECISAM DE AUTENTICAÇÃO
-        // PRODUTOS CLIENT SEMPRE FAZ UMA CHAMADA DE AUTENTICAÇÃO NA FUNCAO getBearerToken()
         LoginResponse loginResponse = new LoginResponse();
         loginResponse.setMessage("Login realizado com sucesso");
         loginResponse.setAuthorization("Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFseXNvbkBxYS5jb20uYnIiLCJpYXQiOjE2MzIwNjQwNzIsImV4cCI6MTYzMjA2NzY3Mn0.1");

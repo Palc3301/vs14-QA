@@ -36,6 +36,15 @@ public class UsuariosDataFactory {
         return usuario;
     }
 
+    public static UsuariosModel usuarioComCamposEmBranco() {
+        UsuariosModel usuario = novoUsuario();
+        usuario.setNome(StringUtils.EMPTY);
+        usuario.setEmail(StringUtils.EMPTY);
+        usuario.setPassword(StringUtils.EMPTY);
+        usuario.setAdministrador(StringUtils.EMPTY);
+        return usuario;
+    }
+
     public static UsuariosModel usuarioValido() {
         return novoUsuario();
     }

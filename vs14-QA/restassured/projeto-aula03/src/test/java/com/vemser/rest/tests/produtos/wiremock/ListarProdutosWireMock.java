@@ -3,7 +3,6 @@ package com.vemser.rest.tests.produtos.wiremock;
 import com.github.tomakehurst.wiremock.WireMockServer;
 import com.google.gson.Gson;
 import com.vemser.rest.client.ProdutosClient;
-import com.vemser.rest.model.ProdutosResponse;
 import org.apache.http.HttpStatus;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -62,8 +61,8 @@ public class ListarProdutosWireMock {
         produtosClient.listarProdutos()
                 .then()
                 .log().all()
-                .statusCode(HttpStatus.SC_OK)
-                .body(matchesJsonSchemaInClasspath("schemas/produtos.json"))
+                    .statusCode(HttpStatus.SC_OK)
+                    .body(matchesJsonSchemaInClasspath("schemas/produtos.json"))
         ;
     }
 }
