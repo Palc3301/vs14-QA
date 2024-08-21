@@ -31,7 +31,7 @@ cd <NOME_DO_REPOSITORIO>
 ### 2. Atualize as dependências do maven conforme arquivo pom.xml 
 ### 3. Execute cada um dos testes localizados em 
 ```src/main/java/br.com.dbccompany```
-
+ 
 ---
 
 ## Site de testes: 
