@@ -5,10 +5,10 @@ import io.qameta.allure.Epic;
 import io.qameta.allure.Story;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.selenium.task_automation_practice.data.LoginData;
-import org.selenium.task_automation_practice.dto.LoginDto;
+import org.selenium.task_automation_practice.data.MyAccountData;
+import org.selenium.task_automation_practice.dto.MyAccountDto;
 import org.selenium.task_automation_practice.page.HomePage;
-import org.selenium.task_automation_practice.page.LoginPage;
+import org.selenium.task_automation_practice.page.MyAccountPage;
 import org.selenium.task_automation_practice.selenium.Validation;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -20,16 +20,16 @@ import static storys.HomeStory.*;
 public class HomeTest extends BaseTest {
 
     private HomePage homePage = new HomePage();
-    private LoginPage loginPage = new LoginPage();
-    private LoginData loginData = new LoginData();
+    private MyAccountPage loginPage = new MyAccountPage();
+    private MyAccountData loginData = new MyAccountData();
     Validation validation = new Validation();
 
     @BeforeEach
     public void setup () {
         homePage = new HomePage();
-        loginPage = new LoginPage();
+        loginPage = new MyAccountPage();
 
-        LoginDto loginDto =  loginData.loginDadosValidos();
+        MyAccountDto loginDto =  loginData.loginDadosValidos();
         String mensagem = loginPage.fazerLogin(loginDto.getEmail(), loginDto.getSenha());
         validation.validateText("MY ACCOUNT", mensagem);
         homePage.clickLogo();

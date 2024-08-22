@@ -3,7 +3,7 @@ package org.selenium.task_automation_practice.page;
 import org.openqa.selenium.By;
 import org.selenium.task_automation_practice.selenium.Interactions;
 
-public class LoginPage extends Interactions {
+public class MyAccountPage extends Interactions {
 
     private static final By btnSignIn = By.cssSelector("#header > div.nav > div > div > nav > div.header_user_info > a");
 

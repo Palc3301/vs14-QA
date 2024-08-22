@@ -6,7 +6,7 @@ import lombok.Data;
 
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class LoginDto {
+public class MyAccountDto {
 
     private String email;
     private String senha;
