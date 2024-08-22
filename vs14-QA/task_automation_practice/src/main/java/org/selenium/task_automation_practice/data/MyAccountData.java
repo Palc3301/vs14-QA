@@ -10,7 +10,7 @@ public class MyAccountData {
     public MyAccountDto loginDadosValidos(){
 
         MyAccountDto loginDto = new MyAccountDto();
-        loginDto.setEmail("Grupo3DBC@gmail.com");
+        loginDto.setEmail("Grupo3@gmail.com");
         loginDto.setSenha("12345");
 
         return loginDto;

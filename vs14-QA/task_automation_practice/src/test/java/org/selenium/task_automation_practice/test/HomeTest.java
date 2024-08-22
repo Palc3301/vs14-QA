@@ -128,7 +128,6 @@ public class HomeTest extends BaseTest {
 
     // SECTION SEARCH TESTS
     @Test
-    @Description(CE_HOME_040)
     public void testFuncionalidadeBuscar() {
         homePage.enterSearchQuery("Dress");
         homePage.clickSearchButton();
@@ -136,7 +135,6 @@ public class HomeTest extends BaseTest {
     }
 
     @Test
-    @Description(CE_HOME_041)
     public void testFuncionalidadeBuscarInvalida() {
         homePage.enterSearchQuery("Teste");
         homePage.clickSearchButton();
@@ -144,7 +142,6 @@ public class HomeTest extends BaseTest {
     }
 
     @Test
-    @Description(CE_HOME_042)
     public void testFuncionalidadeBuscarVazia() {
         homePage.enterSearchQuery(" ");
         homePage.clickSearchButton();
@@ -152,21 +149,18 @@ public class HomeTest extends BaseTest {
     }
 
     @Test
-    @Description(CE_HOME_043)
     public void testDeveCadastrarEmailNewsletterSucesso() {
         String message = homePage.enterNewsletterEmail();
         validation.validateText("Newsletter : You have successfully subscribed to this newsletter.", message);
     }
 
     @Test
-    @Description(CE_HOME_044)
     public void testTentarCadastrarEmailNewsletterFormatoInvalido() {
         String message = homePage.enterNewsletterInvalidEmail();
         validation.validateText("Newsletter : Invalid email address.", message);
     }
 
     @Test
-    @Description(CE_HOME_044)
     public void testTentarCadastrarEmailNewsletterEmailVazio() {
         String message = homePage.enterNewsletterEmailVazio();
         validation.validateText("Newsletter : Invalid email address.", message);
