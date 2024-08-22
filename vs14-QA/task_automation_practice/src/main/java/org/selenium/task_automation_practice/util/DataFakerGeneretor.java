@@ -13,4 +13,8 @@ public class DataFakerGeneretor {
         return faker.internet().password();
     }
 
+    public String textAreaFaker() {
+        return faker.lorem().characters(10);
+    }
+
 }
