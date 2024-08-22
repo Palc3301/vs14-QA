@@ -25,4 +25,5 @@ public class LoginTest extends BaseTest {
         String mensagem = loginPage.fazerLogin(usuario.getEmail(), usuario.getSenha());
         validation.validateText("MY ACCOUNT", mensagem);
     }
+
 }
