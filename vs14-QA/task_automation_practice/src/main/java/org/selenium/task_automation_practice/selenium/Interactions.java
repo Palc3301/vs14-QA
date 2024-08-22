@@ -37,4 +37,9 @@ public class Interactions extends Elements {
     protected static void presenceOfElementLocated(By by) {
         waitElement(by);
     }
+
+    protected static void clearKey(By by) {
+        waitElement(by);
+        element(by).clear();
+    }
 }

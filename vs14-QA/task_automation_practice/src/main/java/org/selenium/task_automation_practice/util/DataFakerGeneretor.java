@@ -25,8 +25,5 @@ public class DataFakerGeneretor {
     public String additionalInformationFaker() { return faker.lorem().characters(15); }
     public String addressTitleFaker() { return faker.lorem().characters(10); }
 
-    public String textAreaFaker() {
-        return faker.lorem().characters(10);
-    }
-
+    public String textAreaFaker() { return faker.lorem().characters(10); }
 }

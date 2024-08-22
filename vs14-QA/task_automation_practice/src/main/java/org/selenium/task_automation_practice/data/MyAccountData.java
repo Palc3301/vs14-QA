@@ -42,7 +42,7 @@ public class MyAccountData {
 
         return loginDto;
     }
-  
+
     public MyAccountDto cadastroEmailValido() {
 
         MyAccountDto email = new MyAccountDto();

@@ -3,11 +3,12 @@ package org.selenium.task_automation_practice.test;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Story;
 import org.junit.jupiter.api.Test;
-import org.selenium.task_automation_practice.data.CreateAnAccountData;
 import org.selenium.task_automation_practice.data.MyAccountData;
-import org.selenium.task_automation_practice.dto.CreateAnAccountDto;
 import org.selenium.task_automation_practice.dto.MyAccountDto;
 import org.selenium.task_automation_practice.page.CreateAnAccountPage;
+import org.selenium.task_automation_practice.page.ForgotPasswordPage;
+import org.selenium.task_automation_practice.data.CreateAnAccountData;
+import org.selenium.task_automation_practice.dto.CreateAnAccountDto;
 import org.selenium.task_automation_practice.page.MyAccountPage;
 import org.selenium.task_automation_practice.selenium.Validation;
 
@@ -19,19 +20,67 @@ public class MyAccountTest extends BaseTest {
 
     MyAccountPage myAccountPage = new MyAccountPage();
     MyAccountData myAccountData = new MyAccountData();
-
-    CreateAnAccountPage createAnAccountPage = new CreateAnAccountPage();
-    CreateAnAccountData createAnAccountData = new CreateAnAccountData();
-
     Validation validation = new Validation();
 
     @Test
-    public void test1validarLoginDadosValidos(){
-        MyAccountDto usuario =  myAccountData.loginDadosValidos();
-        String mensagem = myAccountPage.fazerLogin(usuario.getEmail(), usuario.getSenha());
-        validation.validateText("MY ACCOUNT", mensagem);
+    public void testValidarLoginDadosValidos(){
+      CreateAnAccountPage createAnAccountPage = new CreateAnAccountPage();
+      CreateAnAccountData createAnAccountData = new CreateAnAccountData();
+
+      MyAccountDto usuario =  myAccountData.loginDadosValidos();
+      String mensagem = myAccountPage.fazerLogin(usuario.getEmail(), usuario.getSenha());
+      validation.validateText("MY ACCOUNT", mensagem);
     }
 
+    @Test
+
+    public void testTentarValidarLoginEmailFormatoInvalido() {
+        MyAccountDto usuario = myAccountData.loginEmailFormatoInvalido();
+        String mensagem = myAccountPage.fazerLoginEmailInvalido(usuario.getEmail(), usuario.getSenha());
+        validation.validateText("Invalid email address.", mensagem);
+    }
+
+    @Test
+    public void testTentarValidarLoginEmailVazio() {
+        MyAccountDto usuario = myAccountData.loginEmailVazio();
+        String mensagem = myAccountPage.fazerLoginEmailVazio(usuario.getEmail(), usuario.getSenha());
+        validation.validateText("An email address required.", mensagem);
+    }
+
+    @Test
+    public void testTentarValidarLoginPasswordInvalida() {
+        MyAccountDto usuario = myAccountData.loginPasswordInvalida();
+        String mensagem = myAccountPage.fazerLoginPasswordInvalida(usuario.getEmail(), usuario.getSenha());
+        validation.validateText("Invalid password.", mensagem);
+    }
+
+    @Test
+    public void testValidarBotaoForgotPassword() {
+        String mensagem = myAccountPage.botaoForgotPassword();
+        validation.validateText("FORGOT YOUR PASSWORD?", mensagem);
+    }
+
+    @Test
+    public void testValidarEmailCadastroComSucesso() {
+        MyAccountDto email = myAccountData.cadastroEmailValido();
+        String mensagem = myAccountPage.criarContaComEmailValido(email.getEmail());
+        validation.validateText("YOUR PERSONAL INFORMATION", mensagem);
+    }
+
+    @Test
+    public void testValidarEmailCadastroFormatoInvalido() {
+        MyAccountDto email = myAccountData.cadastroEmailFormatoInvalido();
+        String mensagem = myAccountPage.criarContaEmailFormatoInvalido(email.getEmail());
+        validation.validateText("Invalid email address.", mensagem);
+    }
+
+    @Test
+    public void testValidarEmailCadastroVazio() {
+        MyAccountDto email = myAccountData.cadastroEmailFormatoInvalido();
+        String mensagem = myAccountPage.criarContaEmailVazio(email.getEmail());
+        validation.validateText("Invalid email address.", mensagem);
+    }
+    
     @Test
     public void testValidarHistoricoPedidosComSucesso() {
 
@@ -51,5 +100,4 @@ public class MyAccountTest extends BaseTest {
         String mensagem = myAccountPage.verHistoricoPedidosSemPedidos();
         validation.validateText("You have not placed any orders.", mensagem);
     }
-
 }
