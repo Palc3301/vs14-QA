@@ -12,6 +12,8 @@ public class DataFakerGeneretor {
     public String senhaFaker(){
         return faker.internet().password();
     }
+    public String firstNameFaker() { return faker.name().firstName(); }
+    public String lastNameFaker() { return faker.name().lastName(); }
 
     //Address
     public String addressLine1Faker() { return faker.address().streetName(); }

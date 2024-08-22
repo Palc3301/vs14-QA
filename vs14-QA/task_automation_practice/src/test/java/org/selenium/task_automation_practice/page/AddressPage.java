@@ -56,18 +56,6 @@ public class AddressPage extends Interactions {
         return readText(zipCodeErrorMsg);
     }
 
-    private static void fillAddressFields(AddressDto address) {
-        sendKeys(campoAddressLine1, address.getAddressLine1());
-        sendKeys(campoAddressLine2, address.getAddressLine2());
-        sendKeys(campoCity, address.getCity());
-        click(campoStateOpt);
-        sendKeys(campoPostCode, address.getZipCode());
-        sendKeys(campoHomePhone, address.getHomePhone());
-        sendKeys(campoMobilePhone, address.getMobilePhone());
-        sendKeys(campoAdditionalInformation, address.getAdditionalInformation());
-        sendKeys(campoAddressTitle, address.getAddressTitle());
-    }
-
     public String cadastroEnderecoHomePhoneInvalido(AddressDto address) {
         click(btnAddresses);
         click(btnAddNewAddress);
@@ -124,6 +112,18 @@ public class AddressPage extends Interactions {
         acceptAlert();
 
         return readText(myAddressesMsg);
+    }
+
+    private static void fillAddressFields(AddressDto address) {
+        sendKeys(campoAddressLine1, address.getAddressLine1());
+        sendKeys(campoAddressLine2, address.getAddressLine2());
+        sendKeys(campoCity, address.getCity());
+        click(campoStateOpt);
+        sendKeys(campoPostCode, address.getZipCode());
+        sendKeys(campoHomePhone, address.getHomePhone());
+        sendKeys(campoMobilePhone, address.getMobilePhone());
+        sendKeys(campoAdditionalInformation, address.getAdditionalInformation());
+        sendKeys(campoAddressTitle, address.getAddressTitle());
     }
 
     private static void clearAddressFields() {
