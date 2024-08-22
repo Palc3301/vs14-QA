@@ -8,6 +8,8 @@ public class AddressPage extends Interactions {
     private static final By btnAddresses = By.cssSelector("#center_column > div > div > ul > li:nth-child(3) > a");
     private static final By btnAddNewAddress = By.cssSelector("#center_column > div.clearfix.main-page-indent > a");
     private static final By btnSubmitAddress = By.cssSelector("#submitAddress");
+    private static final By btnUpdateAddress = By.cssSelector("#center_column > div.addresses > div:nth-child(3) > div:nth-child(2) > ul > li.address_update > a:nth-child(1) > span");
+    private static final By btnDeleteAddress = By.cssSelector("#center_column > div.addresses > div:nth-child(3) > div:nth-child(1) > ul > li.address_update > a:nth-child(2) > span");
 
     private static final By campoAddressLine1 = By.cssSelector("#address1");
     private static final By campoAddressLine2 = By.cssSelector("#address2");
@@ -27,15 +29,8 @@ public class AddressPage extends Interactions {
     public String cadastrarEndereco(AddressDto address) {
         click(btnAddresses);
         click(btnAddNewAddress);
-        sendKeys(campoAddressLine1, address.getAddressLine1());
-        sendKeys(campoAddressLine2, address.getAddressLine2());
-        sendKeys(campoCity, address.getCity());
-        click(campoStateOpt);
-        sendKeys(campoPostCode, address.getZipCode());
-        sendKeys(campoHomePhone, address.getHomePhone());
-        sendKeys(campoMobilePhone, address.getMobilePhone());
-        sendKeys(campoAdditionalInformation, address.getAdditionalInformation());
-        sendKeys(campoAddressTitle, address.getAddressTitle());
+
+        fillAddressFields(address);
 
         click(btnSubmitAddress);
 
@@ -45,7 +40,6 @@ public class AddressPage extends Interactions {
     public String cadastroEnderecoCamposVazios() {
         click(btnAddresses);
         click(btnAddNewAddress);
-
         click(btnSubmitAddress);
 
         return readText(camposVaziosErrorMsg);
@@ -55,25 +49,14 @@ public class AddressPage extends Interactions {
         click(btnAddresses);
         click(btnAddNewAddress);
 
-        sendKeys(campoAddressLine1, address.getAddressLine1());
-        sendKeys(campoAddressLine2, address.getAddressLine2());
-        sendKeys(campoCity, address.getCity());
-        click(campoStateOpt);
-        sendKeys(campoPostCode, address.getZipCode());
-        sendKeys(campoHomePhone, address.getHomePhone());
-        sendKeys(campoMobilePhone, address.getMobilePhone());
-        sendKeys(campoAdditionalInformation, address.getAdditionalInformation());
-        sendKeys(campoAddressTitle, address.getAddressTitle());
+        fillAddressFields(address);
 
         click(btnSubmitAddress);
 
         return readText(zipCodeErrorMsg);
     }
 
-    public String cadastroEnderecoHomePhoneInvalido(AddressDto address) {
-        click(btnAddresses);
-        click(btnAddNewAddress);
-
+    private static void fillAddressFields(AddressDto address) {
         sendKeys(campoAddressLine1, address.getAddressLine1());
         sendKeys(campoAddressLine2, address.getAddressLine2());
         sendKeys(campoCity, address.getCity());
@@ -83,9 +66,76 @@ public class AddressPage extends Interactions {
         sendKeys(campoMobilePhone, address.getMobilePhone());
         sendKeys(campoAdditionalInformation, address.getAdditionalInformation());
         sendKeys(campoAddressTitle, address.getAddressTitle());
+    }
+
+    public String cadastroEnderecoHomePhoneInvalido(AddressDto address) {
+        click(btnAddresses);
+        click(btnAddNewAddress);
+
+        fillAddressFields(address);
 
         click(btnSubmitAddress);
 
         return readText(invalidPhoneErrorMsg);
     }
+
+    // Atualizar Endereço
+    public String atualizarEndereco(AddressDto address) {
+        click(btnAddresses);
+        click(btnUpdateAddress);
+
+        clearAddressFields();
+
+        fillAddressFields(address);
+
+        click(btnSubmitAddress);
+
+        return readText(myAddressesMsg);
+    }
+
+    public String atualizarEnderecoCamposVazios() {
+        click(btnAddresses);
+        click(btnUpdateAddress);
+
+        clearAddressFields();
+
+        click(btnSubmitAddress);
+
+        return readText(camposVaziosErrorMsg);
+    }
+
+    public String atualizarEnderecoZipCodeInvalido(AddressDto address) {
+        click(btnAddresses);
+        click(btnUpdateAddress);
+
+        clearAddressFields();
+
+        fillAddressFields(address);
+
+        click(btnSubmitAddress);
+
+        return readText(zipCodeErrorMsg);
+    }
+
+    public String excluirEndereco() {
+        click(btnAddresses);
+        click(btnDeleteAddress);
+
+        acceptAlert();
+
+        return readText(myAddressesMsg);
+    }
+
+    private static void clearAddressFields() {
+        clearKey(campoAddressLine1);
+        clearKey(campoAddressLine2);
+        clearKey(campoCity);
+        clearKey(campoPostCode);
+        clearKey(campoHomePhone);
+        clearKey(campoMobilePhone);
+        clearKey(campoAdditionalInformation);
+        clearKey(campoAddressTitle);
+    }
+
+
 }
