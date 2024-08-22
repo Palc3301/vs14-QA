@@ -25,4 +25,8 @@ public class Interactions extends Elements {
         waitElement(by);
         element(by).sendKeys("\t");
     }
+
+    protected static void presenceOfElementLocated(By by) {
+        waitElement(by);
+    }
 }
