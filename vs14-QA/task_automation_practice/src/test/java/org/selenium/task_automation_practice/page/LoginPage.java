@@ -5,23 +5,24 @@ import org.selenium.task_automation_practice.selenium.Interactions;
 
 public class LoginPage extends Interactions {
 
+    private static final By btnSignIn = By.cssSelector("#header > div.nav > div > div > nav > div.header_user_info > a");
+
     private static final By campoEmail =
-    By.cssSelector("input[data-qa=\"login-email\"]");
+    By.cssSelector("#email");
 
     private static final By campoSenha =
-    By.cssSelector("input[data-qa=\"login-password\"]");
+    By.cssSelector("#passwd");
 
-    public void preencherCampoEmail(String email){
-        sendKeys(campoEmail,email);
-    }
-    public void preencherCampoSenha(String senha){
-        sendKeys(campoSenha,senha);
-    }
+    private static final By btnEntrar = By.cssSelector("#SubmitLogin");
 
-//    public String fazerLogin(String email, String senha){
-//        sendKeys(campoEmail,email);
-//        sendKeys(campoSenha,email);
-//
-//        return readText(msgLoginBemSucedido);
-//    }
+    private static final By msgMyAccount = By.cssSelector("#center_column > h1");
+
+    public String fazerLogin(String email, String senha){
+        click(btnSignIn);
+        sendKeys(campoEmail, email);
+        sendKeys(campoSenha, senha);
+        click(btnEntrar);
+
+        return readText(msgMyAccount);
+    }
 }

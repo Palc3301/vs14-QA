@@ -10,17 +10,35 @@ public class LoginData {
     public LoginDto loginDadosValidos(){
 
         LoginDto loginDto = new LoginDto();
-        loginDto.setEmail("test-email@gmail.com");
-        loginDto.setSenha("123abc");
+        loginDto.setEmail("Grupo3DBC@gmail.com");
+        loginDto.setSenha("12345");
 
         return loginDto;
     }
 
-    public LoginDto LoginDadosDinamicos(){
+    public LoginDto LoginEmailInvalido(){
 
         LoginDto loginDto = new LoginDto();
-        loginDto.setEmail(dataFakerGeneretor.emailFaker());
+        loginDto.setEmail(dataFakerGeneretor.emailFaker().replace("@", ""));
         loginDto.setSenha(dataFakerGeneretor.senhaFaker());
+
+        return loginDto;
+    }
+
+    public LoginDto LoginCamposVazios(){
+
+        LoginDto loginDto = new LoginDto();
+        loginDto.setEmail("");
+        loginDto.setSenha("");
+
+        return loginDto;
+    }
+
+    public LoginDto LoginPasswordInvalida(){
+
+        LoginDto loginDto = new LoginDto();
+        loginDto.setEmail(dataFakerGeneretor.emailFaker().replace("@", ""));
+        loginDto.setSenha(dataFakerGeneretor.senhaFaker().substring(0, 3));
 
         return loginDto;
     }
