@@ -24,4 +24,8 @@ public class HomeStory {
     public static final String CE_HOME_40 = "040-CE Validar busca na aba de pesquisa com sucesso";
     public static final String CE_HOME_41 = "041-CE Tentar validar busca inserindo uma pesquisa inválida";
     public static final String CE_HOME_42 = "042-CE Validar busca com campo de pesquisa vazio";
+
+    public static final String CE_HOME_043 = "043-CE Validar inserir email no newsletter";
+    public static final String CE_HOME_044 = "044-CE Tentar validar Newsletter email com formato inválido\n";
+    public static final String CE_HOME_045 = "045-CE Tentar validar cadastro Newsletter email vazio\n";
 }

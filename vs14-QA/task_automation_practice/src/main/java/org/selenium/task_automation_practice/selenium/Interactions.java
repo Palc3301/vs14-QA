@@ -11,9 +11,17 @@ public class Interactions extends Elements {
         element(by).click();
     }
 
+    protected static void acceptAlert() {
+        BrowserService.driver.switchTo().alert().accept();
+    }
     protected static void sendKeys(By by, String text) {
         waitElement(by);
         element(by).sendKeys(text);
+    }
+
+    protected static void clearKey(By by) {
+        waitElement(by);
+        element(by).clear();
     }
 
     protected static String readText(By by) {
@@ -24,5 +32,9 @@ public class Interactions extends Elements {
     protected static void sendTab(By by){
         waitElement(by);
         element(by).sendKeys("\t");
+    }
+
+    protected static void presenceOfElementLocated(By by) {
+        waitElement(by);
     }
 }

@@ -16,7 +16,7 @@ public class MyAccountData {
         return loginDto;
     }
 
-    public MyAccountDto LoginEmailInvalido(){
+    public MyAccountDto loginEmailFormatoInvalido(){
 
         MyAccountDto loginDto = new MyAccountDto();
         loginDto.setEmail(dataFakerGeneretor.emailFaker().replace("@", ""));
@@ -25,21 +25,45 @@ public class MyAccountData {
         return loginDto;
     }
 
-    public MyAccountDto LoginCamposVazios(){
+    public MyAccountDto loginEmailVazio(){
 
         MyAccountDto loginDto = new MyAccountDto();
         loginDto.setEmail("");
-        loginDto.setSenha("");
+        loginDto.setSenha(dataFakerGeneretor.senhaFaker());
 
         return loginDto;
     }
 
-    public MyAccountDto LoginPasswordInvalida(){
+    public MyAccountDto loginPasswordInvalida(){
 
         MyAccountDto loginDto = new MyAccountDto();
-        loginDto.setEmail(dataFakerGeneretor.emailFaker().replace("@", ""));
+        loginDto.setEmail(dataFakerGeneretor.emailFaker());
         loginDto.setSenha(dataFakerGeneretor.senhaFaker().substring(0, 3));
 
         return loginDto;
+    }
+  
+    public MyAccountDto cadastroEmailValido() {
+
+        MyAccountDto email = new MyAccountDto();
+        email.setEmail(dataFakerGeneretor.emailFaker());
+
+        return email;
+    }
+
+    public MyAccountDto cadastroEmailFormatoInvalido() {
+
+        MyAccountDto email = new MyAccountDto();
+        email.setEmail(dataFakerGeneretor.emailFaker().replace("@", ""));
+
+        return email;
+    }
+
+    public MyAccountDto cadastroEmailVazio() {
+
+        MyAccountDto email = new MyAccountDto();
+        email.setEmail("");
+
+        return email;
     }
 }

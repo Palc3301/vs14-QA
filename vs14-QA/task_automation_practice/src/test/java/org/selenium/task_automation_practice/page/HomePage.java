@@ -2,6 +2,9 @@ package org.selenium.task_automation_practice.page;
 
 import org.openqa.selenium.By;
 import org.selenium.task_automation_practice.selenium.Interactions;
+import org.selenium.task_automation_practice.util.DataFakerGeneretor;
+
+import javax.xml.crypto.Data;
 
 public class HomePage extends Interactions {
 
@@ -16,16 +19,17 @@ public class HomePage extends Interactions {
     private static final By blogMenu = By.cssSelector("#block_top_menu > ul > li:nth-child(4)");
 
     private static final By btnBestSellers = By.cssSelector("#home-page-tabs > li:nth-child(2) > a");
+    private static final By messageSubscriptionNewsletter = By.cssSelector("#columns > p");
 
-    private static final By btnPopular = By.cssSelector("#home-page-tabs > li:nth-child(1) > a");
+  private static final By btnPopular = By.cssSelector("#home-page-tabs > li:nth-child(1) > a");
     private static final By btnQuickView = By.cssSelector
             ("#blockbestsellers > li.ajax_block_product.col-xs-12.col-sm-4.col-md-3.first-in-line.first-item-of-tablet-line.first-item-of-mobile-line.hovered > div > div.left-block > div > a.quick-view > span ");
     private static final By btnMore = By.cssSelector
             ("#blockbestsellers > li.ajax_block_product.col-xs-12.col-sm-4.col-md-3.last-item-of-mobile-line.hovered > div > div.right-block > div.button-container > a > span");
     private static final By btnShopNow = By.cssSelector("#homeslider > li:nth-child(2) > div > p:nth-child(3)");
     private static final By campoNewsletter = By.cssSelector("#newsletter-input");
-    private static final By btnEnviarNewsletter = By.cssSelector("#newsletter_block_left > div > form > div > button");
     private static final By btnCart = By.cssSelector("#header > div:nth-child(3) > div > div > div:nth-child(3) > div > a > b");
+    private static final By btnSubmitNewsletterEmail = By.cssSelector("#newsletter_block_left > div > form > div > button");
 
     private static final By textCartIsEmpty = By.cssSelector("#center_column > p");
 
@@ -93,12 +97,33 @@ public class HomePage extends Interactions {
         return readText(textCartIsEmpty).contains("Your shopping cart is empty.");
     }
 
-    public void enterNewsletterEmail(String email) {
+    public String enterNewsletterEmail() {
+        DataFakerGeneretor dataFaker = new DataFakerGeneretor();
+        String email = dataFaker.emailFaker();
         sendKeys(campoNewsletter, email);
+
+        click(btnSubmitNewsletterEmail);
+
+        return readText(messageSubscriptionNewsletter);
     }
 
-    public void clickSendNewsletter() {
-        click(btnEnviarNewsletter);
+    public String enterNewsletterInvalidEmail() {
+        DataFakerGeneretor dataFaker = new DataFakerGeneretor();
+        String email = dataFaker.emailFaker().replace("@", "");
+        sendKeys(campoNewsletter, email);
+
+        click(btnSubmitNewsletterEmail);
+
+        return readText(messageSubscriptionNewsletter);
+    }
+
+    public String enterNewsletterEmailVazio() {
+        String email = "";
+        sendKeys(campoNewsletter, email);
+
+        click(btnSubmitNewsletterEmail);
+
+        return readText(messageSubscriptionNewsletter);
     }
 
     public boolean isSearchResultVisible() {
