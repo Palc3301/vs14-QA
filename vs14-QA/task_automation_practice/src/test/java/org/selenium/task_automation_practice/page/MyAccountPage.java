@@ -2,6 +2,7 @@ package org.selenium.task_automation_practice.page;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+
 import org.selenium.task_automation_practice.selenium.Interactions;
 
 public class MyAccountPage extends Interactions {
@@ -15,12 +16,16 @@ public class MyAccountPage extends Interactions {
     private static final By btnCreateAnAccount = By.cssSelector("#SubmitCreate");
     private static final By msgMyAccount = By.cssSelector("#center_column > h1");
     private static final By msgEmailInvalido = By.cssSelector("#center_column > div.alert.alert-danger > ol > li");
-    public static final By msgEmailVazio = By.cssSelector("#center_column > div.alert.alert-danger > ol > li");
-    public static final By msgPassowordInvalida = By.cssSelector("#center_column > div.alert.alert-danger > ol > li");
-    public static final By msgPaginaForgot = By.cssSelector("#center_column > div > h1");
-    public static final By msgPaginaCreate = By.cssSelector("#account-creation_form > div.account_creation > h3");
-    public static final By msgEmailCadastroVazio = By.cssSelector("#create_account_error > ol > li");
-    public static final By msgEmailCadastroFormatoInvalido = By.cssSelector("#create_account_error > ol > li");
+    private static final By msgEmailVazio = By.cssSelector("#center_column > div.alert.alert-danger > ol > li");
+    private static final By msgPassowordInvalida = By.cssSelector("#center_column > div.alert.alert-danger > ol > li");
+    private static final By msgPaginaForgot = By.cssSelector("#center_column > div > h1");
+    private static final By msgPaginaCreate = By.cssSelector("#account-creation_form > div.account_creation > h3");
+    private static final By msgEmailCadastroVazio = By.cssSelector("#create_account_error > ol > li");
+    private static final By msgEmailCadastroFormatoInvalido = By.cssSelector("#create_account_error > ol > li");
+    private static final By btnHistoricoPedidosComPedidos = By.cssSelector("#center_column > div > div > ul > li:nth-child(1) > a > span");
+    private static final By btnHistoricoPedidos = By.cssSelector("#center_column > div > div > ul > li:nth-child(2) > a > span");
+    private static final By msgHistoricoPedidos = By.cssSelector("#block-history > p");
+    private static final By historicoPedidosItem = By.cssSelector("#order-list > tbody > tr.first_item");
 
     public String fazerLogin(String email, String password){
         click(btnSignIn);
@@ -89,5 +94,15 @@ public class MyAccountPage extends Interactions {
         click(btnCreateAnAccount);
 
         return readText(msgEmailCadastroFormatoInvalido);
+    }
+
+    public void verHistoricoPedidos() {
+        click(btnHistoricoPedidosComPedidos);
+        presenceOfElementLocated(historicoPedidosItem);
+    }
+
+    public String verHistoricoPedidosSemPedidos() {
+        click(btnHistoricoPedidos);
+        return readText(msgHistoricoPedidos);
     }
 }

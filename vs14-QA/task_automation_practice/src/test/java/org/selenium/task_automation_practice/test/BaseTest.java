@@ -12,7 +12,7 @@ public class BaseTest extends BrowserService {
     }
 
     @AfterEach
-    public void fecharNavegador() {
+    public void fecharNavegador(){
         quit();
     }
 }
