@@ -10,7 +10,6 @@ public class HomePage extends Interactions {
     private static final By logo = By.cssSelector("#header_logo > a");
     private static final By campoBusca = By.cssSelector("#search_query_top");
     private static final By btnSearch = By.cssSelector("#searchbox > button");
-    private static final By cart = By.cssSelector("#header > div:nth-child(3) > div > div > div:nth-child(3) > div > a");
     private static final By womenMenu = By.cssSelector("#block_top_menu > ul > li:nth-child(1)");
     private static final By dressesMenu = By.cssSelector("#block_top_menu > ul > li:nth-child(2)");
     private static final By tshirtsMenu = By.cssSelector("#block_top_menu > ul > li:nth-child(3)");
@@ -26,7 +25,9 @@ public class HomePage extends Interactions {
     private static final By btnShopNow = By.cssSelector("#homeslider > li:nth-child(2) > div > p:nth-child(3)");
     private static final By campoNewsletter = By.cssSelector("#newsletter-input");
     private static final By btnEnviarNewsletter = By.cssSelector("#newsletter_block_left > div > form > div > button");
+    private static final By btnCart = By.cssSelector("#header > div:nth-child(3) > div > div > div:nth-child(3) > div > a > b");
 
+    private static final By textCartIsEmpty = By.cssSelector("#center_column > p");
 
     public void clickContactUs() {
         click(btnContactUs);
@@ -49,7 +50,7 @@ public class HomePage extends Interactions {
     }
 
     public void clickCart() {
-        click(cart);
+        click(btnCart);
     }
 
     public void clickWomenMenu() {
@@ -86,6 +87,10 @@ public class HomePage extends Interactions {
 
     public void clickShopNow() {
         click(btnShopNow);
+    }
+
+    public boolean isCartEmpty() {
+        return readText(textCartIsEmpty).contains("Your shopping cart is empty.");
     }
 
     public void enterNewsletterEmail(String email) {

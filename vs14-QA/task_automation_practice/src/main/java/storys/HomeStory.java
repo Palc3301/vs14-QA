@@ -18,6 +18,9 @@ public class HomeStory {
     public static final String CE_HOME_034 = "034-CE Verificação da exibição correta das páginas  ‘Quick View’ com sucesso";
     public static final String CE_HOME_035 = "035-CE Verificação da exibição correta das páginas  ’More’ com sucesso";
 
+    public static final String CE_HOME_038 = "038-CE Verificação do botão “Carrinho” com sucesso";
+    public static final String CE_HOME_039 = "039-CE Verificar carrinho sem produtos adicionados";
+
     public static final String CE_HOME_40 = "040-CE Validar busca na aba de pesquisa com sucesso";
     public static final String CE_HOME_41 = "041-CE Tentar validar busca inserindo uma pesquisa inválida";
     public static final String CE_HOME_42 = "042-CE Validar busca com campo de pesquisa vazio";

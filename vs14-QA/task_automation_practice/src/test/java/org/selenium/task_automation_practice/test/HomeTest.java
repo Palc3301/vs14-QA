@@ -3,8 +3,13 @@ package org.selenium.task_automation_practice.test;
 import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Story;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.selenium.task_automation_practice.data.LoginData;
+import org.selenium.task_automation_practice.dto.LoginDto;
 import org.selenium.task_automation_practice.page.HomePage;
+import org.selenium.task_automation_practice.page.LoginPage;
+import org.selenium.task_automation_practice.selenium.Validation;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -15,6 +20,20 @@ import static storys.HomeStory.*;
 public class HomeTest extends BaseTest {
 
     private HomePage homePage = new HomePage();
+    private LoginPage loginPage = new LoginPage();
+    private LoginData loginData = new LoginData();
+    Validation validation = new Validation();
+
+    @BeforeEach
+    public void setup () {
+        homePage = new HomePage();
+        loginPage = new LoginPage();
+
+        LoginDto loginDto =  loginData.loginDadosValidos();
+        String mensagem = loginPage.fazerLogin(loginDto.getEmail(), loginDto.getSenha());
+        validation.validateText("MY ACCOUNT", mensagem);
+        homePage.clickLogo();
+    }
 
     // Button and Menu Tests
     @Test
@@ -92,6 +111,21 @@ public class HomeTest extends BaseTest {
         homePage.clickBestSellers();
         homePage.clickMore();
     }
+
+    // SECTION CART TESTS
+    @Test
+    @Description(CE_HOME_038)
+    public void testFuncionalidadeCarrinho() {
+        homePage.clickCart();
+    }
+
+    @Test
+    @Description(CE_HOME_039)
+    public void testFuncionalidadeCarrinhoVazio() {
+        homePage.clickCart();
+        assertTrue(homePage.isCartEmpty());
+    }
+
 
     // SECTION SEARCH TESTS
     @Test
