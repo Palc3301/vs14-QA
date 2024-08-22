@@ -20,7 +20,8 @@ public class HomePage extends Interactions {
 
     private static final By btnBestSellers = By.cssSelector("#home-page-tabs > li:nth-child(2) > a");
     private static final By messageSubscriptionNewsletter = By.cssSelector("#columns > p");
-    private static final By btnPopular = By.cssSelector("#home-page-tabs > li:nth-child(1) > a");
+
+  private static final By btnPopular = By.cssSelector("#home-page-tabs > li:nth-child(1) > a");
     private static final By btnQuickView = By.cssSelector
             ("#blockbestsellers > li.ajax_block_product.col-xs-12.col-sm-4.col-md-3.first-in-line.first-item-of-tablet-line.first-item-of-mobile-line.hovered > div > div.left-block > div > a.quick-view > span ");
     private static final By btnMore = By.cssSelector
@@ -29,6 +30,7 @@ public class HomePage extends Interactions {
     private static final By campoNewsletter = By.cssSelector("#newsletter-input");
     private static final By btnCart = By.cssSelector("#header > div:nth-child(3) > div > div > div:nth-child(3) > div > a > b");
     private static final By btnSubmitNewsletterEmail = By.cssSelector("#newsletter_block_left > div > form > div > button");
+
     private static final By textCartIsEmpty = By.cssSelector("#center_column > p");
 
     public void clickContactUs() {

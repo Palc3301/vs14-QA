@@ -51,4 +51,5 @@ public class MyAccountTest extends BaseTest {
         String mensagem = myAccountPage.verHistoricoPedidosSemPedidos();
         validation.validateText("You have not placed any orders.", mensagem);
     }
+
 }
