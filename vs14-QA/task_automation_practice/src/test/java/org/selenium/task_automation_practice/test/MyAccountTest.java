@@ -17,8 +17,6 @@ import static storys.LoginStory.*;
 public class MyAccountTest extends BaseTest {
 
     MyAccountPage myAccountPage = new MyAccountPage();
-    ForgotPasswordPage forgotPasswordPage = new ForgotPasswordPage();
-    CreateAnAccountPage createAnAccountPage = new CreateAnAccountPage();
     MyAccountData myAccountData = new MyAccountData();
     Validation validation = new Validation();
 

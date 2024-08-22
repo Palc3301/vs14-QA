@@ -11,8 +11,8 @@ public class BaseTest extends BrowserService {
         chromeDriverInit("http://www.automationpractice.pl/index.php");
     }
 
-//    @AfterEach
-//    public void fecharNavegador(){
-//        quit();
-//    }
+    @AfterEach
+    public void fecharNavegador() {
+        quit();
+    }
 }

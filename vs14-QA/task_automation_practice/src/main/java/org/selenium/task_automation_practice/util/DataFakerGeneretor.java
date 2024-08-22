@@ -14,5 +14,8 @@ public class DataFakerGeneretor {
     }
     public String firstNameFaker() { return faker.name().firstName(); }
     public String lastNameFaker() { return faker.name().lastName(); }
+    public String textAreaFaker() {
+        return faker.lorem().characters(10);
+    }
 
 }
