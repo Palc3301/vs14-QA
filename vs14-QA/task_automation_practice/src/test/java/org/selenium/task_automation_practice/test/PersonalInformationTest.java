@@ -1,17 +1,22 @@
 package org.selenium.task_automation_practice.test;
 
-import org.checkerframework.checker.units.qual.C;
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Story;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.selenium.task_automation_practice.data.CreateAnAccountData;
 import org.selenium.task_automation_practice.data.MyAccountData;
 import org.selenium.task_automation_practice.dto.CreateAnAccountDto;
-import org.selenium.task_automation_practice.dto.MyAccountDto;
 import org.selenium.task_automation_practice.page.CreateAnAccountPage;
 import org.selenium.task_automation_practice.page.MyAccountPage;
 import org.selenium.task_automation_practice.page.PersonalnformationPage;
 import org.selenium.task_automation_practice.selenium.Validation;
 
+import static storys.PersonalInformationStory.*;
+
+@Epic(EPIC)
+@Story(USER_STORY_PERSONAL_INFORMATION)
 public class PersonalInformationTest extends BaseTest{
 
     PersonalnformationPage personalnformationPage = new PersonalnformationPage();
@@ -29,18 +34,21 @@ public class PersonalInformationTest extends BaseTest{
     }
 
     @Test
+    @Description(CE_INFORMATION_050)
     public void testAtualizarSenhaSucesso() {
         String mensagem = personalnformationPage.trocarSenhaSucesso(cadastro.getPassword());
         validation.validateText("Your personal information has been successfully updated.", mensagem);
     }
 
     @Test
+    @Description(CE_INFORMATION_051)
     public void testNovasSenhasIncompativeis() {
         String mensagem = personalnformationPage.novasSenhasIncompativeis(cadastro.getPassword());
         validation.validateText("The password and confirmation do not match.", mensagem);
     }
 
     @Test
+    @Description(CE_INFORMATION_052)
     public void testSenhaTamanhoInvalido() {
         String mensagem = personalnformationPage.novasSenhasTamanhoInvalido(cadastro.getPassword());
         validation.notNull(mensagem);

@@ -1,18 +1,19 @@
 package org.selenium.task_automation_practice.test;
 
+import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Story;
 import org.junit.jupiter.api.Test;
 import org.selenium.task_automation_practice.data.MyAccountData;
 import org.selenium.task_automation_practice.dto.MyAccountDto;
 import org.selenium.task_automation_practice.page.CreateAnAccountPage;
-import org.selenium.task_automation_practice.page.ForgotPasswordPage;
 import org.selenium.task_automation_practice.data.CreateAnAccountData;
 import org.selenium.task_automation_practice.dto.CreateAnAccountDto;
 import org.selenium.task_automation_practice.page.MyAccountPage;
 import org.selenium.task_automation_practice.selenium.Validation;
 
-import static storys.LoginStory.*;
+import static storys.CreateAnAccountStory.CE_CREATE_ACCOUNT_002;
+import static storys.MyAccountStory.*;
 
 @Epic(EPIC)
 @Story(USER_STORY_LOGIN)
@@ -21,11 +22,12 @@ public class MyAccountTest extends BaseTest {
     MyAccountPage myAccountPage = new MyAccountPage();
     MyAccountData myAccountData = new MyAccountData();
     Validation validation = new Validation();
+    CreateAnAccountPage createAnAccountPage = new CreateAnAccountPage();
+    CreateAnAccountData createAnAccountData = new CreateAnAccountData();
 
     @Test
+    @Description(CE_LOGIN_006)
     public void testValidarLoginDadosValidos(){
-      CreateAnAccountPage createAnAccountPage = new CreateAnAccountPage();
-      CreateAnAccountData createAnAccountData = new CreateAnAccountData();
 
       MyAccountDto usuario =  myAccountData.loginDadosValidos();
       String mensagem = myAccountPage.fazerLogin(usuario.getEmail(), usuario.getSenha());
@@ -33,7 +35,7 @@ public class MyAccountTest extends BaseTest {
     }
 
     @Test
-
+    @Description(CE_LOGIN_007)
     public void testTentarValidarLoginEmailFormatoInvalido() {
         MyAccountDto usuario = myAccountData.loginEmailFormatoInvalido();
         String mensagem = myAccountPage.fazerLoginEmailInvalido(usuario.getEmail(), usuario.getSenha());
@@ -41,6 +43,7 @@ public class MyAccountTest extends BaseTest {
     }
 
     @Test
+    @Description(CE_LOGIN_008)
     public void testTentarValidarLoginEmailVazio() {
         MyAccountDto usuario = myAccountData.loginEmailVazio();
         String mensagem = myAccountPage.fazerLoginEmailVazio(usuario.getEmail(), usuario.getSenha());
@@ -48,6 +51,7 @@ public class MyAccountTest extends BaseTest {
     }
 
     @Test
+    @Description(CE_LOGIN_009)
     public void testTentarValidarLoginPasswordInvalida() {
         MyAccountDto usuario = myAccountData.loginPasswordInvalida();
         String mensagem = myAccountPage.fazerLoginPasswordInvalida(usuario.getEmail(), usuario.getSenha());
@@ -68,6 +72,7 @@ public class MyAccountTest extends BaseTest {
     }
 
     @Test
+    @Description(CE_CREATE_ACCOUNT_002)
     public void testValidarEmailCadastroFormatoInvalido() {
         MyAccountDto email = myAccountData.cadastroEmailFormatoInvalido();
         String mensagem = myAccountPage.criarContaEmailFormatoInvalido(email.getEmail());
