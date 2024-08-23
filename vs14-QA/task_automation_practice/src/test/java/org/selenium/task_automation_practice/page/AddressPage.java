@@ -1,6 +1,7 @@
 package org.selenium.task_automation_practice.page;
 
 import org.openqa.selenium.By;
+import org.selenium.task_automation_practice.data.AddressData;
 import org.selenium.task_automation_practice.dto.AddressDto;
 import org.selenium.task_automation_practice.selenium.Interactions;
 
@@ -106,7 +107,9 @@ public class AddressPage extends Interactions {
     }
 
     public String excluirEndereco() {
-        click(btnAddresses);
+        AddressData addressData = new AddressData();
+        AddressDto address = addressData.addressDadosValidos();
+        cadastrarEndereco(address);
         click(btnDeleteAddress);
 
         acceptAlert();

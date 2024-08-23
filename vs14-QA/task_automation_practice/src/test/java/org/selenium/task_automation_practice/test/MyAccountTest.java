@@ -88,6 +88,7 @@ public class MyAccountTest extends BaseTest {
 
     @Test
     @Description(CE_LOGIN_048)
+
     public void testValidarHistoricoPedidosComSucesso() {
 
         MyAccountDto usuario =  myAccountData.loginDadosValidos();
