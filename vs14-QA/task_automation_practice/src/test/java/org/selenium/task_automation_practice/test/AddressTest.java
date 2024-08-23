@@ -10,6 +10,8 @@ import org.selenium.task_automation_practice.page.AddressPage;
 import org.selenium.task_automation_practice.page.MyAccountPage;
 import org.selenium.task_automation_practice.selenium.Validation;
 
+@Epic(EPIC)
+@Story(USER_STORY_ADDRESS)
 public class AddressTest extends BaseTest {
 
     MyAccountPage myAccountPage = new MyAccountPage();
@@ -26,6 +28,7 @@ public class AddressTest extends BaseTest {
     }
 
     @Test
+    @Description(CE_ADDRESS_013)
     public void testValidarCadastroDeEnderecoComSucesso() {
         AddressDto address = addressData.addressDadosValidos();
         String mensagem = addressPage.cadastrarEndereco(address);
@@ -33,12 +36,14 @@ public class AddressTest extends BaseTest {
     }
 
     @Test
+    @Description(CE_ADDRESS_014)
     public void testTentarValidarCadastroCamposVazios() {
         String mensagem = addressPage.cadastroEnderecoCamposVazios();
         validation.validateText("There are 5 errors", mensagem);
     }
 
     @Test
+    @Description(CE_ADDRESS_015)
     public void testTentarValidarCadastroZipCodeInvalido() {
         AddressDto address = addressData.addressZipCodeInvalido();
         String mensagem = addressPage.cadastroEnderecoZipCodeInvalido(address);
@@ -46,6 +51,7 @@ public class AddressTest extends BaseTest {
     }
 
     @Test
+    @Description(CE_ADDRESS_016)
     public void testTentarValidarCadastroTelefoneInvalido() {
         AddressDto address = addressData.addressHomePhoneInvalido();
         String mensagem = addressPage.cadastroEnderecoHomePhoneInvalido(address);
@@ -54,6 +60,7 @@ public class AddressTest extends BaseTest {
 
     // Atualizar Cadastro
     @Test
+    @Description(CE_ADDRESS_017)
     public void testValidarAtualizaçãoDeEnderecoComSucesso() {
         AddressDto newAddress = addressData.addressDadosValidos();
         String mensagem = addressPage.atualizarEndereco(newAddress);
@@ -61,12 +68,14 @@ public class AddressTest extends BaseTest {
     }
 
     @Test
+    @Description(CE_ADDRESS_018)
     public void testTentarValidarAtualizaçãoDeEnderecoCamposVazios() {
         String mensagem = addressPage.atualizarEnderecoCamposVazios();
         validation.validateText("There are 5 errors", mensagem);
     }
 
     @Test
+    @Description(CE_ADDRESS_019)
     public void testTentarValidarAtualizacaoDeEnderecoZipCodeInvalido() {
         AddressDto address = addressData.addressZipCodeInvalido();
         String mensagem = addressPage.atualizarEnderecoZipCodeInvalido(address);
@@ -75,6 +84,7 @@ public class AddressTest extends BaseTest {
 
     // Excluir Endereço
     @Test
+    @Description(CE_ADDRESS_020)
     public void testValidarExclusaoEnderecoComSucesso() {
         String mensagem = addressPage.excluirEndereco();
         validation.validateText("MY ADDRESSES", mensagem);
