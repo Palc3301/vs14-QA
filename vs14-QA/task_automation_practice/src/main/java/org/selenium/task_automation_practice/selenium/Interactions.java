@@ -19,11 +19,6 @@ public class Interactions extends Elements {
         element(by).sendKeys(text);
     }
 
-    protected static void clearKey(By by) {
-        waitElement(by);
-        element(by).clear();
-    }
-
     protected static String readText(By by) {
         waitElement(by);
         return element(by).getText();
