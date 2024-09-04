@@ -1,6 +1,6 @@
 package com.vemser.rest.tests.login;
 
-import com.vemser.rest.model.login.LoginResponse;
+import com.vemser.rest.model.LoginResponse;
 import io.restassured.http.ContentType;
 import org.apache.http.HttpStatus;
 import org.junit.jupiter.api.Assertions;

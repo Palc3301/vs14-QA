@@ -1,12 +1,7 @@
 package com.vemser.rest.tests.produtos;
 
 import com.vemser.rest.client.ProdutosClient;
-import io.restassured.RestAssured;
-import io.restassured.http.ContentType;
-import io.restassured.response.Response;
 import org.apache.http.HttpStatus;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 

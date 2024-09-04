@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="913ebc15-24ab-455e-9cb2-e259d32907da" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/vemser/rest/pojo/ProdutosPOJO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/vemser/rest/pojo/UsuariosPOJO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/vemser/rest/tests/OlaMundoTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/vemser/rest/tests/login/LoginTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/vemser/rest/tests/produtos/ProdutosTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/vemser/rest/tests/usuarios/UsuariosTest.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="2kZBWswtQpqFZ7msdWqN89zxRjh" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "JUnit.LoginTest.executor": "Run",
+    "JUnit.LoginTest.testLoginComEmailVazio.executor": "Run",
+    "JUnit.LoginTest.testLoginComSucesso.executor": "Run",
+    "JUnit.LoginTest.testLoginComUsuarioInexistente.executor": "Run",
+    "JUnit.OlaMundoTest.testBuscarUsuarioPorIDComSucesso.executor": "Run",
+    "JUnit.ProdutosTest.executor": "Run",
+    "JUnit.ProdutosTest.testAtualizarProdutoComSucesso.executor": "Run",
+    "JUnit.ProdutosTest.testAtualizarProdutoComTokenInvalido.executor": "Run",
+    "JUnit.ProdutosTest.testCriarProdutoComCamposVazios.executor": "Run",
+    "JUnit.ProdutosTest.testCriarProdutoComNomeJaUtilizado.executor": "Run",
+    "JUnit.ProdutosTest.testCriarProdutoComSucesso.executor": "Run",
+    "JUnit.ProdutosTest.testCriarProdutoSemAutenticacao.executor": "Run",
+    "JUnit.ProdutosTest.testDeletarProdutoComIdInexistente.executor": "Run",
+    "JUnit.ProdutosTest.testDeletarProdutoComSucesso.executor": "Run",
+    "JUnit.ProdutosTest.testDeletarProdutoQueEstaNoCarrinho.executor": "Run",
+    "JUnit.ProdutosTest.testGetProdutosIdVazio.executor": "Run",
+    "JUnit.ProdutosTest.testGetTodosOsProdutos.executor": "Run",
+    "JUnit.ProdutosTest.testGetTodosOsProdutosIdInexistente.executor": "Run",
+    "JUnit.ProdutosTest.testGetTodosOsProdutosPorId.executor": "Run",
+    "JUnit.ProdutosTest.testarAtualizarProdutoComCamposVazios.executor": "Run",
+    "JUnit.ProdutosTest.testarAtualizarProdutoComSucesso.executor": "Run",
+    "JUnit.ProdutosTest.testarCriarProdutoComNomeJaUtilizado.executor": "Run",
+    "JUnit.ProdutosTest.testarCriarProdutoComSucesso.executor": "Run",
+    "JUnit.UsuariosTest.executor": "Run",
+    "JUnit.UsuariosTest.testAtualizarUsuariosComCamposEmBranco.executor": "Run",
+    "JUnit.UsuariosTest.testAtualizarUsuariosComEmailExistente.executor": "Run",
+    "JUnit.UsuariosTest.testAtualizarUsuariosComSucesso.executor": "Run",
+    "JUnit.UsuariosTest.testBuscarUsuarioPorIDComSucesso.executor": "Run",
+    "JUnit.UsuariosTest.testBuscarUsuarioPorIDInexistente.executor": "Run",
+    "JUnit.UsuariosTest.testBuscarUsuarioPorIDVazio.executor": "Run",
+    "JUnit.UsuariosTest.testCadastrarUsuarioComCampoVazio.executor": "Run",
+    "JUnit.UsuariosTest.testCadastrarUsuarioComEmailExistente.executor": "Run",
+    "JUnit.UsuariosTest.testCadastrarUsuarioComSucesso.executor": "Run",
+    "JUnit.UsuariosTest.testExcluirUsuarioComCarrinho.executor": "Run",
+    "JUnit.UsuariosTest.testExcluirUsuarioComSucesso.executor": "Run",
+    "JUnit.UsuariosTest.testExcluirUsuarioInexistente.executor": "Run",
+    "JUnit.UsuariosTest.testListarTodosUsuariosComSucesso.executor": "Run",
+    "JUnit.UsuariosTest.testListarUsuariosPorNomeComSucesso.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/pedro/Downloads/vs14-QA/vs14-QA/restassured/projeto-aula02",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "onboarding.tips.debug.path": "C:/Users/pedro/Downloads/vs14-QA/vs14-QA/projeto-aula01/src/main/java/org/example/Main.java",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager" selected="JUnit.LoginTest">
+    <configuration name="LoginTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="projeto-aula01" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.vemser.rest.tests.login.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.vemser.rest.tests.login" />
+      <option name="MAIN_CLASS_NAME" value="com.vemser.rest.tests.login.LoginTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProdutosTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="projeto-aula01" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.vemser.rest.tests.produtos.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.vemser.rest.tests.produtos" />
+      <option name="MAIN_CLASS_NAME" value="com.vemser.rest.tests.produtos.ProdutosTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProdutosTest.testDeletarProdutoComIdInexistente" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="projeto-aula01" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.vemser.rest.tests.produtos.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.vemser.rest.tests.produtos" />
+      <option name="MAIN_CLASS_NAME" value="com.vemser.rest.tests.produtos.ProdutosTest" />
+      <option name="METHOD_NAME" value="testDeletarProdutoComIdInexistente" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProdutosTest.testDeletarProdutoComSucesso" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="projeto-aula01" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.vemser.rest.tests.produtos.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.vemser.rest.tests.produtos" />
+      <option name="MAIN_CLASS_NAME" value="com.vemser.rest.tests.produtos.ProdutosTest" />
+      <option name="METHOD_NAME" value="testDeletarProdutoComSucesso" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UsuariosTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="projeto-aula01" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.vemser.rest.tests.usuarios.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.vemser.rest.tests.usuarios" />
+      <option name="MAIN_CLASS_NAME" value="com.vemser.rest.tests.usuarios.UsuariosTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.LoginTest" />
+        <item itemvalue="JUnit.UsuariosTest" />
+        <item itemvalue="JUnit.ProdutosTest" />
+        <item itemvalue="JUnit.ProdutosTest.testDeletarProdutoComSucesso" />
+        <item itemvalue="JUnit.ProdutosTest.testDeletarProdutoComIdInexistente" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
+        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="913ebc15-24ab-455e-9cb2-e259d32907da" name="Changes" comment="" />
+      <created>1723481253559</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1723481253559</updated>
+      <workItem from="1723481255158" duration="16380000" />
+      <workItem from="1723568244700" duration="93000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/Main.java</url>
+          <line>13</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
