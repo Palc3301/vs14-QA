@@ -1,18 +1,12 @@
-//LoginPage.js
-
-let campoUsername = ':nth-child(2) > .input';
-let campoPassword = ':nth-child(4) > .input';
-
-let btnLogin = ':nth-child(5) > .button'
-let error = '.error'
+import {loginSelectors} from "./selectors/LoginSelector";
 
 Cypress.Commands.add('loginInvalido', (dados) => {
-    cy.preencherCampo(campoUsername, dados.username)
-    cy.preencherCampo(campoPassword, dados.password)
-    cy.clicar(btnLogin)
+    cy.preencherCampo(loginSelectors.campoUsername, dados.username)
+    cy.preencherCampo(loginSelectors.campoPassword, dados.password)
+    cy.clicar(loginSelectors.btnLogin)
 })
 
 Cypress.Commands.add('loginSemDados', () => {
-    cy.clicar(btnLogin)
-    cy.validarTexto(error, 'Please enter a username and password.')
+    cy.clicar(loginSelectors.btnLogin)
+    cy.validarTexto(loginSelectors.error, 'Please enter a username and password.')
 })

@@ -1,6 +1,13 @@
 {
-  "username": "Heidi Toy II",
-  "email": "Lenora_Bednar1@hotmail.com",
-  "phoneNumber": "1-553-655-7121",
-  "message": "Antea adstringo aer solium valeo currus cursim virtus vulgus itaque."
+  "username": "Marcel_Schmidt27",
+  "password": "UzC45iA5lYklD6D",
+  "confirmPassword": "UzC45iA5lYklD6D",
+  "firstName": "Tara",
+  "lastName": "Lemke",
+  "address": "24827 Dooley Path",
+  "city": "Schmittstad",
+  "state": "Utah",
+  "zipCode": "50952-0117",
+  "phoneNumber": "438-638-8068 x9023",
+  "ssn": "283136014"
 }

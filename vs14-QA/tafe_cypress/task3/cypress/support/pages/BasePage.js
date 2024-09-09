@@ -1,5 +1,8 @@
-Cypress.Commands.add('validarTexto', (selector, dados) => cy.get(selector).contains(dados) );
-
+Cypress.Commands.add('validarTexto', (selector, dados) => {
+  cy.get(selector, { timeout: 10000 }) 
+    .should('be.visible') 
+    .should('contain.text', dados);
+});
 Cypress.Commands.add('clicar', (selector) => 
   cy.get(selector).click({force: true}) );
 

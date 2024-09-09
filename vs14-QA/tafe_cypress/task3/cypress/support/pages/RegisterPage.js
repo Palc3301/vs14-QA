@@ -1,77 +1,59 @@
-//RegisterPage.js
-let btnRegister = "#loginPanel > :nth-child(3) > a";
-
-let firstName = "input[id=\"customer.firstName\"]";
-let lastName = "input[id=\"customer.lastName\"]";
-let address = "input[id=\"customer.address.street\"]";
-let city = "input[id=\"customer.address.city\"]";
-let state = "input[id=\"customer.address.state\"]";
-let zipCode = "input[id=\"customer.address.zipCode\"]";
-let phoneNumber = "input[id=\"customer.phoneNumber\"]";
-let ssn = "input[id=\"customer.ssn\"]";
-let username = "input[id=\"customer.username\"]";
-let password = "input[id=\"customer.password\"]";
-let confirmPassword = "input[id=\"repeatedPassword\"]";
-
-let btnRegisterUser = "[colspan=\"2\"] > .button";
-
-let msgFirstNameEmBranco = "#customer\\.firstName\\.errors";
-let msgLastNameEmBranco = "[id=\"customer\.lastName\.errors\"]"
-let msgAdressEmBranco = "[id=\"customer\.address\.street\.errors\"]"
-
-let msgPasswordDiferente = "[id=\"repeatedPassword\.errors\"]"
+import { registerSelectors } from "./selectors/RegisterSelector";
+import { faker } from '@faker-js/faker';
 
 Cypress.Commands.add('registerValido', (dados) => {
-  cy.clicar(btnRegister)
-  cy.preencherCampo(firstName, dados.firstName)
-  cy.preencherCampo(lastName, dados.lastName)
-  cy.preencherCampo(address, dados.address)
-  cy.preencherCampo(city, dados.city)
-  cy.preencherCampo(state, dados.state)
-  cy.preencherCampo(zipCode, dados.zipCode)
-  cy.preencherCampo(phoneNumber, dados.phoneNumber)
-  cy.preencherCampo(ssn, dados.ssn)
-
-  cy.preencherCampo(username, dados.username)
-  cy.preencherCampo(password, dados.password)
-  cy.preencherCampo(confirmPassword, dados.password)
-  cy.clicar(btnRegisterUser)
-  cy.validarTexto(".title", "Welcome")
-})
-
-Cypress.Commands.add('registerEmBranco', (dados) => {
-  cy.clicar(btnRegister)
-  cy.preencherCampo(city, dados.city)
-  cy.preencherCampo(state, dados.state)
-  cy.preencherCampo(zipCode, dados.zipCode)
-  cy.preencherCampo(phoneNumber, dados.phoneNumber)
-  cy.preencherCampo(ssn, dados.ssn)
+    cy.preencherCampo(registerSelectors.firstName, dados.firstName)
+    cy.preencherCampo(registerSelectors.lastName, dados.lastName)
+    cy.preencherCampo(registerSelectors.address, dados.address)
+    cy.preencherCampo(registerSelectors.city, dados.city)
+    cy.preencherCampo(registerSelectors.state, dados.state)
+    cy.preencherCampo(registerSelectors.zipCode, dados.zipCode)
+    cy.preencherCampo(registerSelectors.phoneNumber, dados.phoneNumber)
+    cy.preencherCampo(registerSelectors.ssn, dados.ssn)
   
-  cy.clicar(btnRegisterUser)
-  cy.validarTexto(msgFirstNameEmBranco , "First name is required.")
-  cy.validarTexto(msgLastNameEmBranco, "Last name is required.")
-  cy.validarTexto(msgAdressEmBranco, "Address is required.")
+    cy.preencherCampo(registerSelectors.username, dados.username)
+    cy.preencherCampo(registerSelectors.password, dados.password)
+    cy.preencherCampo(registerSelectors.confirmPassword, dados.password)
+
+  })
+  
+  Cypress.Commands.add('registerEmBranco', (dados) => {
+    cy.preencherCampo(registerSelectors.city, dados.city)
+    cy.preencherCampo(registerSelectors.state, dados.state)
+    cy.preencherCampo(registerSelectors.zipCode, dados.zipCode)
+    cy.preencherCampo(registerSelectors.phoneNumber, dados.phoneNumber)
+    cy.preencherCampo(registerSelectors.ssn, dados.ssn)
+  })
+  
+  Cypress.Commands.add('registerPasswordDiferente', (dados) => {
+    cy.preencherCampo(registerSelectors.firstName, dados.firstName)
+    cy.preencherCampo(registerSelectors.lastName, dados.lastName)
+    cy.preencherCampo(registerSelectors.address, dados.address)
+    cy.preencherCampo(registerSelectors.city, dados.city)
+    cy.preencherCampo(registerSelectors.state, dados.state)
+    cy.preencherCampo(registerSelectors.zipCode, dados.zipCode)
+    cy.preencherCampo(registerSelectors.phoneNumber, dados.phoneNumber)
+    cy.preencherCampo(registerSelectors.ssn, dados.ssn)
+  
+    cy.preencherCampo(registerSelectors.username, dados.username)
+    cy.preencherCampo(registerSelectors.password, dados.password)
+    cy.preencherCampo(registerSelectors.confirmPassword, 12345)
+  })
+
+  Cypress.Commands.add('generateFakerRegister', (dados) => {
+    const passFake = faker.internet.password()
+
+    cy.writeFile('cypress/fixtures/Dados.json', {
+      "username": faker.internet.userName(),
+      "password": passFake,
+      "confirmPassword": passFake,
+      "firstName": faker.person.firstName(),
+      "lastName": faker.person.lastName(),
+      "address": faker.address.streetAddress(),
+      "city": faker.address.city(),
+      "state": faker.address.state(),
+      "zipCode": faker.address.zipCode(),
+      "phoneNumber": faker.phone.number(),
+      "ssn": faker.string.numeric(9),
+    })
 })
-
-Cypress.Commands.add('registerPasswordDiferente', (dados) => {
-  cy.clicar(btnRegister)
-  cy.preencherCampo(firstName, dados.firstName)
-  cy.preencherCampo(lastName, dados.lastName)
-  cy.preencherCampo(address, dados.address)
-  cy.preencherCampo(city, dados.city)
-  cy.preencherCampo(state, dados.state)
-  cy.preencherCampo(zipCode, dados.zipCode)
-  cy.preencherCampo(phoneNumber, dados.phoneNumber)
-  cy.preencherCampo(ssn, dados.ssn)
-
-  cy.preencherCampo(username, dados.username)
-  cy.preencherCampo(password, dados.password)
-  cy.preencherCampo(confirmPassword, dados.confirmPassword)
-  cy.clicar(btnRegisterUser)
-  cy.validarTexto(msgPasswordDiferente, 'Passwords did not match.')
-})
-
-
-
-
-
